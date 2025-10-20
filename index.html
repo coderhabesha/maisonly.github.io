@@ -1,153 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maisonly - Chef-Prepared Meals at Home</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 24px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .logo {
-            width: 120px;
-            height: 60px;
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 48px;
-        }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 24px;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
-        }
-
-        .subtitle {
-            font-size: 20px;
-            color: #4a5568;
-            margin-bottom: 32px;
-            line-height: 1.6;
-        }
-
-        .description {
-            font-size: 18px;
-            color: #4a5568;
-            margin-bottom: 48px;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #1a1a1a;
-            color: white;
-            padding: 18px 48px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border: 2px solid #1a1a1a;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background: white;
-            color: #1a1a1a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-section {
-            margin-top: 80px;
-            padding-top: 48px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .team-heading {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #718096;
-            margin-bottom: 24px;
-            font-weight: 600;
-        }
-
-        .team-content {
-            font-size: 16px;
-            color: #4a5568;
-            line-height: 1.7;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            .subtitle {
-                font-size: 18px;
-            }
-
-            .description {
-                font-size: 16px;
-            }
-
-            .cta-button {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maisonly — Private Chef Dinners</title>
+  <meta name="description" content="Private chef dinners by talented culinary students. Reserve a discounted private-chef experience." />
+  <style>
+    :root{--accent:#b02e2e;--muted:#6b7280;--bg:#fff;--max:720px}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:var(--bg);color:#111}
+    .wrap{max-width:var(--max);margin:48px auto;padding:24px}
+    header{display:flex;flex-direction:column;gap:18px}
+    h1{margin:0;font-size:clamp(1.4rem,3.6vw,2rem)}
+    p.lead{margin:0;color:var(--muted)}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn.secondary{background:#efefef;color:#111;border:1px solid #ddd}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:28px}
+    .feature{background:#fafafa;padding:14px;border-radius:10px;border:1px solid #f0f0f0}
+    footer{margin-top:30px;color:var(--muted);font-size:0.9rem}
+    .small{font-size:0.9rem;color:var(--muted)}
+    @media(min-width:720px){ .hero{display:flex;align-items:center;justify-content:space-between} }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">Maisonly</div>
-        
-        <h1>Restaurant-quality meals, prepared in your home.</h1>
-        
-        <p class="subtitle">We connect you with talented culinary students for chef-prepared dinners at a fraction of the cost of hiring a private chef.</p>
-        
-        <p class="description">Our carefully vetted culinary students bring their training, creativity, and passion directly to your kitchen. Whether it's a weeknight dinner, special occasion, or weekly meal prep, experience the craftsmanship of emerging culinary talent while supporting the next generation of chefs.</p>
-        
-        <a href="YOUR_TYPEFORM_LINK_HERE" class="cta-button" target="_blank">Share Your Interest</a>
-        
-        <div class="team-section">
-            <h3 class="team-heading">About</h3>
-            <p class="team-content">Maisonly was founded to make high-quality, personalized dining accessible while creating meaningful opportunities for culinary students to develop their craft in real-world settings. We believe in the apprenticeship model—where emerging talent meets discerning home cooks who value quality, convenience, and supporting the next generation.</p>
+  <main class="wrap">
+    <header class="hero">
+      <div>
+        <h1>Private chef dinners by talented culinary students — premium meals at a fraction of the price</h1>
+        <p class="lead">Vetted students, mentor oversight, and food-safety certified cooks. Book an intimate dinner for 2–6 people.</p>
+        <div class="cta-row" role="group" aria-label="Primary actions">
+          <a class="btn" id="reserveBtn" href="https://YOUR_TYPEFORM_URL" target="_blank" rel="noopener">Reserve a $1 spot</a>
+          <a class="btn secondary" href="https://YOUR_TYPEFORM_URL" target="_blank" rel="noopener">Join the waitlist</a>
         </div>
-    </div>
+      </div>
+      <div class="small" aria-hidden="true">
+        <!-- Optional: add a simple placeholder for a chef photo or logo -->
+        <svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:#f8f8f8;border-radius:8px">
+          <rect width="160" height="120" rx="8" fill="#f8f8f8"/>
+        </svg>
+      </div>
+    </header>
+
+    <section class="features" aria-labelledby="features-heading">
+      <div class="feature">
+        <strong>Vetted talent</strong>
+        <div class="small">Selected students from local culinary programs following a skills checklist.</div>
+      </div>
+      <div class="feature">
+        <strong>Mentor oversight</strong>
+        <div class="small">Professional chef mentors review menus and service plans for every booking.</div>
+      </div>
+      <div class="feature">
+        <strong>Safety & insurance</strong>
+        <div class="small">Food-safety certified cooks and service-level guarantees for peace of mind.</div>
+      </div>
+      <div class="feature">
+        <strong>Refundable reservation</strong>
+        <div class="small">$1 refundable hold to confirm your booking commitment and reduce no-shows.</div>
+      </div>
+    </section>
+
+    <section style="margin-top:22px">
+      <h2 style="margin:0 0 8px 0">How it works</h2>
+      <ol style="padding-left:20px;margin:0;color:var(--muted)">
+        <li>Answer a 2-minute booking survey (menus, dietary needs, preferred date) — opens in a new tab.</li>
+        <li>Pay a refundable $1 reservation to hold your slot or join the waitlist for free.</li>
+        <li>We match you with a vetted culinary-student chef and mentor; final menu confirmed before service.</li>
+      </ol>
+    </section>
+
+    <section style="margin-top:22px">
+      <h2 style="margin:0 0 8px 0">Questions people ask</h2>
+      <div class="small">
+        <strong>Are the cooks professionals?</strong> Students are trained and vetted; mentors review each booking.<br/>
+        <strong>What if I'm unhappy?</strong> Refund or re-serve policy clearly stated at booking confirmation.<br/>
+        <strong>Do you handle dietary restrictions?</strong> Yes — include them in the Typeform survey and we’ll confirm with the chef.
+      </div>
+    </section>
+
+    <footer>
+      <div class="small">We’ll only email you about bookings and offers; unsubscribe anytime.</div>
+      <div style="margin-top:8px;color:var(--muted)">© Maisonly</div>
+    </footer>
+  </main>
 </body>
 </html>
