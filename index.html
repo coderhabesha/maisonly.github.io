@@ -1,56 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Maisonly — Private Chef Dinners</title>
+  <meta name="description" content="Private chef dinners by vetted culinary students. In-home dining for 2–6 guests with mentor oversight. Join early access."/>
   <style>
-    body { font-family: sans-serif; margin: 0; padding: 0; background: #fff; color: #222; }
-    .container { max-width: 720px; margin: auto; padding: 32px 20px; }
-    h1 { font-size: 2rem; margin-bottom: 0.5em; }
-    h2 { font-size: 1.4rem; margin-top: 2em; }
-    p.lead { font-size: 1.1rem; color: #555; margin-bottom: 1.5em; }
-    .cta { display: inline-block; background: #b02e2e; color: #fff; padding: 12px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; }
-    ul { padding-left: 1.2em; }
-    li { margin-bottom: 0.6em; }
-    footer { margin-top: 3em; font-size: 0.9rem; color: #777; }
+    /* Basic system font stack, accessible sizes */
+    :root{
+      --accent:#b02e2e;
+      --accent-600:#8f2323;
+      --muted:#6b7280;
+      --card:#fbfbfb;
+      --max:1100px;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#0f1724;
+      background:linear-gradient(180deg,#fff 0%, #fbfbff 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .wrap{max-width:var(--max);margin:32px auto;padding:28px}
+    header{display:grid;gap:20px;grid-template-columns:1fr;align-items:center}
+    @media(min-width:860px){ header{grid-template-columns:1fr 420px;gap:36px} }
+
+    /* Hero */
+    .hero-title{font-size:clamp(1.6rem,3.6vw,2.2rem);margin:0 0 6px 0;line-height:1.08}
+    .hero-sub{color:var(--muted);margin:0 0 16px 0;font-size:1.02rem}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(176,46,46,0.12);border:1px solid rgba(0,0,0,0.03)}
+    .btn-ghost{background:transparent;border:1px solid #e6e7eb;color:#0f1724;padding:11px 16px;border-radius:10px}
+
+    /* Hero card */
+    .hero-card{background:linear-gradient(180deg,#fff,#fcfdff);border-radius:14px;padding:18px;border:1px solid #f0f2f5;box-shadow:0 8px 30px rgba(15,23,36,0.04)}
+    .stat-grid{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .stat{flex:1 1 120px;background:var(--card);padding:10px;border-radius:10px;border:1px solid #eef0f3}
+    .stat strong{display:block;font-size:1.05rem}
+
+    /* Features & two-column sections */
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+    @media(max-width:640px){ .features{grid-template-columns:1fr} }
+    .feature{background:#fff;padding:14px;border-radius:12px;border:1px solid #f3f4f6}
+    .feature h3{margin:0 0 8px 0;font-size:1rem}
+    .feature p{margin:0;color:var(--muted);font-size:0.95rem}
+
+    /* Partner / B2B strip */
+    .partner{margin-top:22px;padding:16px;border-radius:12px;background:linear-gradient(90deg,#fffaf8,#fff);border:1px solid #f6ebe7;display:flex;gap:12px;align-items:center}
+    .partner strong{display:block}
+    .partner small{color:var(--muted)}
+
+    /* FAQ list */
+    .faq{margin-top:18px}
+    .faq-item{margin-bottom:12px}
+    .faq-item summary{font-weight:700;cursor:pointer}
+    details{background:#fff;border-radius:10px;padding:10px;border:1px solid #f0f2f4}
+
+    /* Footer */
+    footer{margin-top:30px;color:var(--muted);font-size:0.92rem;padding-bottom:30px}
+
+    /* Small accents */
+    .badge{display:inline-block;background:#fff;color:var(--muted);padding:6px 10px;border-radius:999px;border:1px solid #eee;font-weight:700;font-size:0.86rem}
+    .muted{color:var(--muted)}
+    a {color:inherit}
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Private chef dinners by culinary students — premium meals, lower prices</h1>
-    <p class="lead">
-      Vetted student chefs from top culinary schools. In-home dining experiences for 2–6 guests, with mentor oversight and food-safety certification.
-    </p>
-    <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdDKuZs3pfHBQ16v3oaVcJPt7Nfk0oSSM4rJEeRzGRPFjzQ2w/viewform?usp=header" target="_blank">Join the early access list</a>
-    <p style="margin-top: 0.5em; font-size: 0.95rem; color: #555;">We’ll launch in the city with the most interest first.</p>
+  <main class="wrap" role="main">
+    <header>
+      <section aria-labelledby="hero-heading">
+        <div class="badge">Early access — launch by city</div>
+        <h1 id="hero-heading" class="hero-title">Private chef dinners by culinary students — premium meals, lower prices</h1>
+        <p class="hero-sub">Vetted student chefs from local culinary programs. In-home dining for 2–6 guests with mentor oversight, food-safety certified, and transparent pricing.</p>
 
-    <h2>Why people love it</h2>
-    <ul>
-      <li>Trained culinary students, vetted by mentors</li>
-      <li>Food-safety certified and insured</li>
-      <li>Transparent pricing and clear expectations</li>
-      <li>Refund or re-serve guarantee if you’re not satisfied</li>
-    </ul>
+        <div class="cta-row" role="group" aria-label="Primary actions">
+          <a class="btn btn-primary" href="https://GOOGLE_FORM_URL" target="_blank" rel="noopener">Join the early access list</a>
+          <a class="btn btn-ghost" href="mailto:hello@maisonly.io">Contact us</a>
+        </div>
 
-    <h2>How it works</h2>
-    <ul>
-      <li>Fill out a 2-minute interest form</li>
-      <li>We’ll launch in the city with the most demand</li>
-      <li>You’ll be the first to know when bookings open</li>
-    </ul>
+        <div class="hero-card" aria-hidden="false" style="margin-top:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <div>
+              <div style="font-weight:700">How it works</div>
+              <div class="muted" style="margin-top:6px">Fill a 2-minute form → we prioritize cities with most interest → you get invited when bookings open</div>
+            </div>
+            <div style="min-width:160px">
+              <div class="stat-grid">
+                <div class="stat"><strong>2–6 guests</strong><span class="muted">Intimate dinners</span></div>
+                <div class="stat"><strong>Mentor-reviewed</strong><span class="muted">Quality checks included</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <h2>Questions people ask</h2>
-    <ul>
-      <li><strong>Are the chefs professionals?</strong> They’re advanced culinary students, trained and vetted by mentors.</li>
-      <li><strong>What’s included?</strong> Menu planning, in-home cooking, plating, and cleanup.</li>
-    </ul>
+      <!-- Right column: visual / trust panel -->
+      <aside aria-labelledby="trust-heading" style="padding-left:6px">
+        <div style="border-radius:14px;overflow:hidden;border:1px solid #eef2f6;background:linear-gradient(180deg,#fff,#fbfcff);padding:14px">
+          <!-- Placeholder image block -->
+          <div style="width:100%;height:220px;background:linear-gradient(135deg,#f3f6ff,#fffaf0);display:flex;align-items:center;justify-content:center;border-radius:8px">
+            <div style="text-align:center;color:var(--muted)">
+              <svg width="68" height="68" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l2 4h4l-3 3 1 5-5-3-5 3 1-5-3-3h4l2-4z" fill="#f3f4f6"/>
+              </svg>
+              <div style="margin-top:10px;font-weight:700">Real student chefs</div>
+              <div class="muted" style="font-size:0.95rem">Profiles, ratings, and short bios shared at booking</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div style="font-weight:700;margin-bottom:8px" id="trust-heading">Trusted process</div>
+            <ul style="padding-left:18px;margin:0;color:var(--muted)">
+              <li>Vetting with practical skills checklist</li>
+              <li>Food-safety certification required</li>
+              <li>Mentor review of menus and service</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+            <div style="font-size:0.95rem;font-weight:700">Interested partners?</div>
+            <a class="btn btn-ghost" href="#partners">Partner with us</a>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <section class="features" aria-label="Core benefits">
+      <div class="feature">
+        <h3>Curated menus</h3>
+        <p class="muted">Seasonal, dietary-friendly menus tailored to your event and confirmed before service.</p>
+      </div>
+      <div class="feature">
+        <h3>Transparent pricing</h3>
+        <p class="muted">Per-person pricing shown upfront with clear inclusions and optional add-ons.</p>
+      </div>
+      <div class="feature">
+        <h3>Quality guarantees</h3>
+        <p class="muted">If you’re not satisfied we’ll offer a re-serve or a refund, depending on the issue.</p>
+      </div>
+      <div class="feature">
+        <h3>Local-first launch</h3>
+        <p class="muted">We’ll prioritize cities where waitlist interest is highest; join to influence roll-out.</p>
+      </div>
+    </section>
+
+    <section id="partners" class="partner" aria-label="Partners">
+      <div style="flex:1">
+        <strong>Work with Maisonly</strong>
+        <small class="muted">Caterers and event planners: tap our vetted student chef pool for overflow, specialty menus, or last-minute coverage.</small>
+      </div>
+      <div style="white-space:nowrap">
+        <a class="btn btn-primary" href="mailto:partners@maisonly.io">Partner inquiry</a>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Frequently asked</h2>
+
+      <details class="faq-item">
+        <summary>Are the chefs professionals?</summary>
+        <div class="muted">They are advanced culinary students who pass a skills checklist and food-safety training; senior mentors review menus and service plans.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What’s included in a booking?</summary>
+        <div class="muted">Menu planning, groceries, in-home prep, plating, service for guests, and cleanup. Optional additions available at booking.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do you choose launch cities?</summary>
+        <div class="muted">We analyze waitlist signups by city and prioritize where demand and supply align. Join the waitlist to add your city.</div>
+      </details>
+    </section>
 
     <footer>
-      We’ll only email you about bookings and launch updates. You can unsubscribe anytime.<br/>
-      &copy; 2025 Maisonly
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="muted">We’ll only email you about bookings and launch updates. Unsubscribe anytime.</div>
+        <div style="font-weight:700">© Maisonly</div>
+      </div>
     </footer>
-  </div>
+  </main>
 </body>
 </html>
-
