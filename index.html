@@ -513,15 +513,53 @@
       margin-bottom:36px;
     }
     
-    .cta-section .btn-primary{
+    .cta-buttons{
+      max-width:600px;
+      margin:40px auto;
+      display:flex;
+      gap:16px;
+      flex-direction:column;
+    }
+    
+    .btn-white{
       background:#fff;
       color:var(--accent);
-      font-size:1.1rem;
+      width:100%;
+      justify-content:center;
+      font-size:1.05rem;
       padding:18px 40px;
     }
     
-    .cta-section .btn-primary:hover{
+    .btn-white:hover{
       background:var(--surface);
+      transform:translateY(-2px);
+    }
+    
+    .btn-outline{
+      background:rgba(255,255,255,0.1);
+      color:#fff;
+      border:2px solid rgba(255,255,255,0.3);
+      width:100%;
+      justify-content:center;
+      font-size:1.05rem;
+      padding:18px 40px;
+      backdrop-filter:blur(10px);
+    }
+    
+    .btn-outline:hover{
+      background:rgba(255,255,255,0.15);
+      border-color:rgba(255,255,255,0.5);
+      transform:translateY(-2px);
+    }
+    
+    .cta-note{
+      font-size:0.95rem;
+      color:rgba(255,255,255,0.6);
+      margin-top:24px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      justify-content:center;
     }
     
     /* Footer */
@@ -576,9 +614,9 @@
     <a href="/" class="logo">Maisonly</a>
     <div class="nav-links">
       <a href="/about.html">About</a>
-      <a href="/how-it-works.html">How it works</a>
+      <!-- <a href="#how-it-works">How it works</a> -->
       <a href="/faq.html">FAQ</a>
-      <a href="/book.html" class="btn btn-primary" style="padding:10px 24px;font-size:0.9rem">Book now</a>
+      <a href="#waitlist" class="btn btn-primary" style="padding:10px 24px;font-size:0.9rem">Join waitlist</a>
     </div>
   </nav>
 
@@ -586,7 +624,7 @@
     <section class="hero wrap">
       <div class="hero-content">
         <div class="badge">
-          <span>Early access available</span>
+          <span>Join our launch waitlist</span>
         </div>
         
         <h1>Restaurant-quality dinners, in the comfort of your home</h1>
@@ -594,7 +632,7 @@
         <p class="hero-subtitle">Experience exceptional private dining with vetted culinary students guided by expert mentors. Intimate, customizable menus for 2–6 guests with transparent pricing.</p>
         
         <div class="btn-group">
-          <a href="/book.html" class="btn btn-primary">Book your experience</a>
+          <a href="#waitlist" class="btn btn-primary">Join early access</a>
           <a href="/about.html" class="btn btn-secondary">Learn more</a>
         </div>
         
@@ -612,8 +650,8 @@
 
     <section class="stats wrap">
       <div class="stat-card">
-        <div class="stat-number">4.9</div>
-        <div class="stat-label">Average rating</div>
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Waitlist signups</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">2–6</div>
@@ -624,63 +662,29 @@
         <div class="stat-label">Vetted chefs</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">24h</div>
-        <div class="stat-label">Support response</div>
+        <div class="stat-number">Q1</div>
+        <div class="stat-label">2025 Launch</div>
       </div>
     </section>
 
-    <section class="features">
-      <div class="wrap">
-        <div class="section-header">
-          <h2 class="section-title">Why choose Maisonly</h2>
-          <p class="section-subtitle">We combine culinary excellence with rigorous safety standards to deliver an unforgettable dining experience</p>
+    <section class="cta-section" id="waitlist">
+      <div class="cta-content wrap">
+        <h2>Be first to experience Maisonly</h2>
+        <p>Join our waitlist and help shape the future of private dining. Early members get exclusive launch benefits.</p>
+        
+        <div class="cta-buttons">
+          <a href="https://forms.gle/your-customer-form" class="btn btn-white">
+            Join as a Guest →
+          </a>
+          <a href="https://forms.gle/your-student-form" class="btn btn-outline">
+            Apply as a Chef →
+          </a>
         </div>
         
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="feature-icon">🍽️</div>
-            <h3>Curated menus</h3>
-            <p>Seasonal, chef-designed menus tailored to your dietary preferences and confirmed before your event</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">✨</div>
-            <h3>Seamless service</h3>
-            <p>From grocery sourcing to cleanup, we handle every detail so you can focus on your guests</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">🏆</div>
-            <h3>Premium experience</h3>
-            <p>Restaurant-quality plating, optional wine pairing, and professional service in your home</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">🎓</div>
-            <h3>Expert mentorship</h3>
-            <p>Every chef is guided by senior culinary mentors who review menus and provide on-site support</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Safety first</h3>
-            <p>All chefs complete food-safety certification and follow strict hygiene protocols</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">💰</div>
-            <h3>Transparent pricing</h3>
-            <p>Clear per-person rates with no hidden fees—see the full breakdown before you book</p>
-          </div>
+        <div class="cta-note">
+          <span>🎁</span>
+          <span>Early waitlist members receive priority booking and exclusive launch discounts</span>
         </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="cta-content wrap">
-        <h2>Ready to elevate your dining experience?</h2>
-        <p>Join early access and be among the first to experience private chef dining reimagined</p>
-        <a href="/book.html" class="btn btn-primary">Book your dinner →</a>
       </div>
     </section>
   </main>
@@ -694,8 +698,8 @@
         </div>
         <div class="footer-links">
           <a href="/about.html">About</a>
-          <a href="/how-it-works.html">How it works</a>
-          <a href="/partners.html">Partners</a>
+          <!-- <a href="/how-it-works.html">How it works</a> -->
+          <!-- <a href="/partners.html">Partners</a> -->
         </div>
         <div class="footer-links">
           <a href="/faq.html">FAQ</a>
@@ -705,7 +709,7 @@
         <div class="footer-links">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
-          <a href="#">Students</a>
+          <!-- <a href="#">Students</a> -->
         </div>
       </div>
       <div class="footer-bottom">
