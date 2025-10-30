@@ -672,22 +672,17 @@
         <h2>Be first to experience Maisonly</h2>
         <p>Join our waitlist and help shape the future of private dining. Early members get exclusive launch benefits.</p>
 
-        <form id="waitlistForm" class="inline-form" style="display:grid;gap:12px;max-width:600px;margin:0 auto;">
-          <div style="display:flex;gap:12px;">
-            <input name="name" id="name" type="text" placeholder="Your name" required style="flex:1;padding:12px;border-radius:10px;border:1px solid var(--border);" />
-            <input name="email" id="email" type="email" placeholder="Email address" required style="flex:1;padding:12px;border-radius:10px;border:1px solid var(--border);" />
-          </div>
+        <form id="waitlistForm" style="display:grid;gap:12px;max-width:600px;margin:0 auto;">
+          <input name="name" id="name" type="text" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid var(--border);" />
+          <input name="email" id="email" type="email" placeholder="Email address" required style="padding:12px;border-radius:10px;border:1px solid var(--border);" />
           <select name="role" id="role" required style="padding:12px;border-radius:10px;border:1px solid var(--border);">
-            <option value="">I am a</option>
+            <option value="">I am a...</option>
             <option value="guest">Guest</option>
             <option value="student">Chef / Student</option>
           </select>
-          <div style="display:flex;gap:12px;">
-            <button type="submit" class="btn btn-white" style="flex:1;">Join waitlist</button>
-            <button type="button" id="quickSurveyBtn" class="btn btn-outline" style="flex:1;">Quick survey</button>
-          </div>
-          <div class="small" id="formNote" style="font-size:0.92rem;color:var(--muted);text-align:center;padding-top:8px;">
-            By joining you consent to receive launch updates and the survey link.
+          <button type="submit" class="btn btn-white">Join & Take Survey</button>
+          <div id="formNote" style="font-size:0.92rem;color:var(--muted);text-align:center;padding-top:8px;">
+            You'll be redirected to a short survey after submitting.
           </div>
         </form>
 
