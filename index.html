@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Maisonly — Private Chef Dinners</title>
@@ -789,25 +790,36 @@
     </script>
 
       <script>
-    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const role = document.getElementById('role').value;
-    
-      if (!name || !email || !role) return;
-    
-      // Replace these with your actual Google Form URLs
-      const guestForm = 'https://forms.gle/SFAtd19VeZGFLQUc7';
-      const studentForm = 'https://forms.gle/j2tSD7F1EjgwMei4A';
-    
-      const redirectUrl = role === 'student' ? studentForm : guestForm;
-    
-      // Optional: prefill name and email if your form supports it
-      // You can append ?entry.123456=name&entry.234567=email to the form URL
-    
-      window.location.href = redirectUrl;
-    });
-    </script>
+        const supabase = supabase.createClient(
+          'https://maisonly.supabase.co',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveHRsZXJqeWVmdGpkZmNxdG1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3Nzg4NjIsImV4cCI6MjA3NzM1NDg2Mn0.Dj3qhP3tHPKUBAAadpN2b9dD9iolbPqk3wlsslRpj1o'
+        );
+      
+        document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+      
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const role = document.getElementById('role').value;
+      
+          if (!name || !email || !role) return;
+      
+          const { error } = await supabase
+            .from('waitlist_submissions')
+            .insert([{ name, email, role }]);
+      
+          if (error) {
+            alert('Submission failed. Please try again.');
+            console.error(error);
+            return;
+          }
+      
+          // Redirect to survey
+          const guestForm = 'https://forms.gle/SFAtd19VeZGFLQUc7';
+          const studentForm = 'https://forms.gle/j2tSD7F1EjgwMei4A';
+          const redirectUrl = role === 'student' ? studentForm : guestForm;
+          window.location.href = redirectUrl;
+        });
+      </script>
   </body>
 </html>
