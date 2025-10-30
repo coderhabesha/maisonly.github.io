@@ -805,7 +805,7 @@
           if (!name || !email || !role) return;
       
           const { error } = await supabase
-            .from('waitlist_submissions')
+            .from('waitlist')
             .insert([{ name, email, role }]);
       
           if (error) {
