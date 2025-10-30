@@ -790,7 +790,8 @@
     </script>
 
       <script>
-        const supabase = supabase.createClient(
+        const { createClient } = window.supabase;
+        const supabase = createClient(
           'https://maisonly.supabase.co',
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveHRsZXJqeWVmdGpkZmNxdG1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3Nzg4NjIsImV4cCI6MjA3NzM1NDg2Mn0.Dj3qhP3tHPKUBAAadpN2b9dD9iolbPqk3wlsslRpj1o'
         );
@@ -815,7 +816,7 @@
           }
       
           // Redirect to survey
-          const guestForm = 'https://forms.gle/SFAtd19VeZGFLQUc7';
+          const guestForm = 'https://forms.gle/faNkDNyr5DWmUFWW6';
           const studentForm = 'https://forms.gle/j2tSD7F1EjgwMei4A';
           const redirectUrl = role === 'student' ? studentForm : guestForm;
           window.location.href = redirectUrl;
