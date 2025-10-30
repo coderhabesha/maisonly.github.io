@@ -235,7 +235,7 @@
     
     .btn-primary{
       background:linear-gradient(135deg,var(--accent),#c43d3d);
-      color:#fff;
+      color:#fff !important;
       box-shadow:0 10px 30px rgba(217,74,74,0.25);
     }
     
@@ -610,15 +610,27 @@
   </style>
 </head>
 <body>
-  <nav class="wrap" id="nav">
+  <!-- <nav class="wrap" id="nav">
     <a href="/" class="logo">Maisonly</a>
     <div class="nav-links">
       <a href="/about.html">About</a>
       <!-- <a href="#how-it-works">How it works</a> -->
-      <a href="/faq.html">FAQ</a>
+      <!-- <a href="/faq.html">FAQ</a>
       <a href="#waitlist" class="btn btn-primary" style="font-size:0.9rem">Join waitlist</a>
     </div>
-  </nav>
+  </nav> -->
+
+  <nav id="nav">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" class="logo">Maisonly</a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="#waitlist" class="btn btn-primary">Join waitlist</a>
+    </div>
+  </div>
+</nav>
+
 
     <main>
       <section class="hero wrap">
