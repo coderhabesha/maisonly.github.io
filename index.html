@@ -766,5 +766,27 @@
       observer.observe(el);
     });
   </script>
+
+  <script>
+document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const role = document.getElementById('role').value;
+
+  if (!name || !email || !role) return;
+
+  // Replace these with your actual Google Form URLs
+  const guestForm = 'https://forms.gle/SFAtd19VeZGFLQUc7';
+  const studentForm = 'https://forms.gle/j2tSD7F1EjgwMei4A';
+
+  const redirectUrl = role === 'student' ? studentForm : guestForm;
+
+  // Optional: prefill name and email if your form supports it
+  // You can append ?entry.123456=name&entry.234567=email to the form URL
+
+  window.location.href = redirectUrl;
+});
+</script>
 </body>
 </html>
