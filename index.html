@@ -62,26 +62,22 @@
     
     /* Navigation */
     nav{
+      padding:24px 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       position:sticky;
       top:0;
-      background:rgba(255,255,255,0.95);
+      background:rgba(255,255,255,0.85);
       backdrop-filter:blur(12px);
       z-index:100;
-      border-bottom:1px solid var(--border);
+      border-bottom:1px solid transparent;
       transition:all 0.3s ease;
     }
     
     nav.scrolled{
-      box-shadow:0 4px 20px rgba(10,15,26,0.06);
-    }
-    
-    .nav-container{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:20px 24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      border-bottom-color:var(--border);
+      box-shadow:0 4px 20px rgba(10,15,26,0.03);
     }
     
     .logo{
@@ -240,12 +236,12 @@
     .btn-primary{
       background:linear-gradient(135deg,var(--accent),#c43d3d);
       color:#fff;
-      box-shadow:0 8px 24px rgba(217,74,74,0.3);
+      box-shadow:0 10px 30px rgba(217,74,74,0.25);
     }
     
     .btn-primary:hover{
       transform:translateY(-2px);
-      box-shadow:0 12px 32px rgba(217,74,74,0.4);
+      box-shadow:0 14px 40px rgba(217,74,74,0.35);
     }
     
     .btn-secondary{
@@ -353,7 +349,7 @@
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
       gap:24px;
-      padding:80px 0 100px;
+      padding:80px 0;
       animation:fadeUp 0.8s ease-out 0.6s both;
     }
     
@@ -473,7 +469,7 @@
     
     /* CTA Section */
     .cta-section{
-      padding:120px 0;
+      padding:100px 0;
       text-align:center;
       background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);
       color:#fff;
@@ -532,13 +528,11 @@
       justify-content:center;
       font-size:1.05rem;
       padding:18px 40px;
-      box-shadow:0 8px 24px rgba(255,255,255,0.15);
     }
     
     .btn-white:hover{
-      background:#fff;
-      transform:translateY(-3px);
-      box-shadow:0 12px 32px rgba(255,255,255,0.25);
+      background:var(--surface);
+      transform:translateY(-2px);
     }
     
     .btn-outline{
@@ -558,58 +552,6 @@
       transform:translateY(-2px);
     }
     
-    /* Form Inputs */
-    .form-input{
-      padding:16px 20px;
-      border-radius:12px;
-      border:2px solid rgba(255,255,255,0.2);
-      background:rgba(255,255,255,0.1);
-      color:#fff;
-      font-size:1rem;
-      font-family:inherit;
-      transition:all 0.3s ease;
-      backdrop-filter:blur(10px);
-    }
-    
-    .form-input::placeholder{
-      color:rgba(255,255,255,0.5);
-    }
-    
-    .form-input:focus{
-      outline:none;
-      border-color:rgba(255,255,255,0.5);
-      background:rgba(255,255,255,0.15);
-    }
-    
-    .form-select{
-      padding:16px 20px;
-      border-radius:12px;
-      border:2px solid rgba(255,255,255,0.2);
-      background:rgba(255,255,255,0.1);
-      color:#fff;
-      font-size:1rem;
-      font-family:inherit;
-      transition:all 0.3s ease;
-      backdrop-filter:blur(10px);
-      cursor:pointer;
-      appearance:none;
-      background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='white' stroke-opacity='0.8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat:no-repeat;
-      background-position:right 20px center;
-      padding-right:50px;
-    }
-    
-    .form-select:focus{
-      outline:none;
-      border-color:rgba(255,255,255,0.5);
-      background-color:rgba(255,255,255,0.15);
-    }
-    
-    .form-select option{
-      background:var(--dark);
-      color:#fff;
-    }
-    
     .cta-note{
       font-size:0.95rem;
       color:rgba(255,255,255,0.6);
@@ -618,13 +560,6 @@
       align-items:center;
       gap:8px;
       justify-content:center;
-    }
-    
-    .form-note{
-      font-size:0.92rem;
-      color:rgba(255,255,255,0.6);
-      text-align:center;
-      padding-top:12px;
     }
     
     /* Footer */
@@ -679,142 +614,179 @@
     <a href="/" class="logo">Maisonly</a>
     <div class="nav-links">
       <a href="/about.html">About</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#faq">FAQ</a>
+      <!-- <a href="#how-it-works">How it works</a> -->
+      <a href="/faq.html">FAQ</a>
       <a href="#waitlist" class="btn btn-primary" style="padding:10px 24px;font-size:0.9rem">Join waitlist</a>
     </div>
   </nav>
 
-  <main>
-    <section class="hero wrap">
-      <div class="hero-content">
-        <div class="badge">
-          <span>Join our launch waitlist</span>
+    <main>
+      <section class="hero wrap">
+        <div class="hero-content">
+          <div class="badge">
+            <span>Join our launch waitlist</span>
+          </div>
+          
+          <h1>Restaurant-quality dinners, in the comfort of your home</h1>
+          
+          <p class="hero-subtitle">Experience exceptional private dining with vetted culinary students guided by expert mentors. Intimate, customizable menus for 2–6 guests with transparent pricing.</p>
+          
+          <div class="btn-group">
+            <a href="#waitlist" class="btn btn-primary">Join early access</a>
+            <a href="/about.html" class="btn btn-secondary">Learn more</a>
+          </div>
+          
+          <div class="trust-badges">
+            <div class="trust-item">Vetted chefs</div>
+            <div class="trust-item">Food-safety certified</div>
+            <div class="trust-item">Mentor oversight</div>
+          </div>
         </div>
         
-        <h1>Restaurant-quality dinners, in the comfort of your home</h1>
-        
-        <p class="hero-subtitle">Experience exceptional private dining with vetted culinary students guided by expert mentors. Intimate, customizable menus for 2–6 guests with transparent pricing.</p>
-        
-        <div class="btn-group">
-          <a href="#waitlist" class="btn btn-primary">Join early access</a>
-          <a href="/about.html" class="btn btn-secondary">Learn more</a>
+        <div class="hero-visual">
+          <img class="hero-image" src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1600&q=80" alt="Elegant plated gourmet dish">
         </div>
-        
-        <div class="trust-badges">
-          <div class="trust-item">Vetted chefs</div>
-          <div class="trust-item">Food-safety certified</div>
-          <div class="trust-item">Mentor oversight</div>
+      </section>
+  
+      <section class="stats wrap">
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Waitlist signups</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2–6</div>
+          <div class="stat-label">Guest capacity</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Vetted chefs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Q3</div>
+          <div class="stat-label">2026 Launch</div>
+        </div>
+      </section>
+  
+      <section class="cta-section" id="waitlist">
+        <div class="cta-content wrap">
+          <h2>Be first to experience Maisonly</h2>
+          <p>Join our waitlist and help shape the future of private dining. Early members get exclusive launch benefits.</p>
+  
+          <form id="waitlistForm" style="display:grid;gap:12px;max-width:600px;margin:0 auto;">
+            <input name="name" id="name" type="text" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid var(--border);" />
+            <input name="email" id="email" type="email" placeholder="Email address" required style="padding:12px;border-radius:10px;border:1px solid var(--border);" />
+            <select name="role" id="role" required style="padding:12px;border-radius:10px;border:1px solid var(--border);">
+              <option value="">I am a...</option>
+              <option value="guest">Guest</option>
+              <option value="student">Chef / Student</option>
+            </select>
+            <button type="submit" class="btn btn-white">Join & Take Survey</button>
+            <div id="formNote" style="font-size:0.92rem;color:var(--muted);text-align:center;padding-top:8px;">
+              You'll be redirected to a short survey after submitting.
+            </div>
+          </form>
+  
+          
+          <!-- <div class="cta-buttons">
+            <a href="https://forms.gle/your-customer-form" class="btn btn-white">
+              Join as a Guest →
+            </a>
+            <a href="https://forms.gle/your-student-form" class="btn btn-outline">
+              Apply as a Chef →
+            </a>
+          </div> -->
+          
+          <div class="cta-note">
+            <span>🎁</span>
+            <span>Early waitlist members receive priority booking and exclusive launch discounts</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+    <footer>
+      <div class="wrap">
+        <div class="footer-content">
+          <div>
+            <div class="footer-brand">Maisonly</div>
+            <p>Restaurant-quality dining at home</p>
+          </div>
+          <div class="footer-links">
+            <a href="/about.html">About</a>
+            <!-- <a href="/how-it-works.html">How it works</a> -->
+            <!-- <a href="/partners.html">Partners</a> -->
+          </div>
+          <div class="footer-links">
+            <a href="/faq.html">FAQ</a>
+            <!-- <a href="/book.html">Book now</a> -->
+            <a href="mailto:hello@maisonly.io">Contact</a>
+          </div>
+          <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <!-- <a href="#">Students</a> -->
+          </div>
+        </div>
+        <div class="footer-bottom">
+          © 2025 Maisonly. All rights reserved.
         </div>
       </div>
-      
-      <div class="hero-visual">
-        <img class="hero-image" src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1600&q=80" alt="Elegant plated gourmet dish">
-      </div>
-    </section>
+    </footer>
 
-    <section class="stats wrap">
-      <div class="stat-card">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Waitlist signups</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">2–6</div>
-        <div class="stat-label">Guest capacity</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">100%</div>
-        <div class="stat-label">Vetted chefs</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">Q1</div>
-        <div class="stat-label">2025 Launch</div>
-      </div>
-    </section>
-
-    <section class="cta-section" id="waitlist">
-      <div class="cta-content wrap">
-        <h2>Be first to experience Maisonly</h2>
-        <p>Join our waitlist and help shape the future of private dining. Early members get exclusive launch benefits.</p>
-        
-        <div class="cta-buttons">
-          <a href="https://forms.gle/your-customer-form" class="btn btn-white">
-            Join as a Guest →
-          </a>
-          <a href="https://forms.gle/your-student-form" class="btn btn-outline">
-            Apply as a Chef →
-          </a>
-        </div>
-        
-        <div class="cta-note">
-          <span>🎁</span>
-          <span>Early waitlist members receive priority booking and exclusive launch discounts</span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div class="footer-content">
-        <div>
-          <div class="footer-brand">Maisonly</div>
-          <p>Restaurant-quality dining at home</p>
-        </div>
-        <div class="footer-links">
-          <a href="/about.html">About</a>
-          <a href="/how-it-works.html">How it works</a>
-          <a href="/partners.html">Partners</a>
-        </div>
-        <div class="footer-links">
-          <a href="/faq.html">FAQ</a>
-          <a href="/book.html">Book now</a>
-          <a href="mailto:hello@maisonly.io">Contact</a>
-        </div>
-        <div class="footer-links">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Students</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        © 2024 Maisonly. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Add scrolled class to nav
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
-
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+    <script>
+      // Add scrolled class to nav
+      window.addEventListener('scroll', () => {
+        const nav = document.getElementById('nav');
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
         }
       });
-    }, observerOptions);
+  
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+  
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+  
+      document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    </script>
 
-    document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
+      <script>
+    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const role = document.getElementById('role').value;
+    
+      if (!name || !email || !role) return;
+    
+      // Replace these with your actual Google Form URLs
+      const guestForm = 'https://forms.gle/SFAtd19VeZGFLQUc7';
+      const studentForm = 'https://forms.gle/j2tSD7F1EjgwMei4A';
+    
+      const redirectUrl = role === 'student' ? studentForm : guestForm;
+    
+      // Optional: prefill name and email if your form supports it
+      // You can append ?entry.123456=name&entry.234567=email to the form URL
+    
+      window.location.href = redirectUrl;
     });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
