@@ -6,433 +6,33 @@
   <title>FAQ — Maisonly</title>
   <meta name="description" content="Frequently asked questions for guests, students, and partners — vetting, bookings, menus, and policies."/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --accent:#d94a4a;
-      --accent-hover:#b83838;
-      --dark:#0a0f1a;
-      --muted:#64748b;
-      --bg:#ffffff;
-      --surface:#f8fafc;
-      --border:#e2e8f0;
-      --max:1200px;
-      --radius:16px;
-      --shadow:0 20px 50px rgba(10,15,26,0.08);
-    }
-    
-    *{box-sizing:border-box;margin:0;padding:0}
-    
-    html{scroll-behavior:smooth}
-    
-    body{
-      font-family:'Inter',system-ui,-apple-system,sans-serif;
-      color:var(--dark);
-      background:var(--bg);
-      -webkit-font-smoothing:antialiased;
-      line-height:1.6;
-    }
-    
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 24px;
-    }
-    
-    /* Navigation */
-    nav{
-      padding:24px 0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      border-bottom:1px solid var(--border);
-    }
-    
-    .logo{
-      font-size:1.4rem;
-      font-weight:800;
-      letter-spacing:-0.02em;
-      color:var(--dark);
-      text-decoration:none;
-      transition:transform 0.2s ease;
-    }
-    
-    .logo:hover{transform:scale(1.02)}
-    
-    .nav-links{
-      display:flex;
-      gap:32px;
-      align-items:center;
-    }
-    
-    .nav-links a{
-      color:var(--muted);
-      text-decoration:none;
-      font-weight:500;
-      font-size:0.95rem;
-      transition:color 0.2s ease;
-    }
-    
-    .nav-links a:hover{color:var(--dark)}
-    
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 24px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:600;
-      font-size:0.9rem;
-      transition:all 0.3s ease;
-      background:linear-gradient(135deg,var(--accent),#c43d3d);
-      color:#fff !important;
-      box-shadow:0 10px 30px rgba(217,74,74,0.25);
-    }
-    
-    .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 14px 40px rgba(217,74,74,0.35);
-    }
-    
-    /* Hero */
-    .page-hero{
-      padding:60px 0 40px;
-      text-align:center;
-    }
-    
-    .page-hero h1{
-      font-size:clamp(2rem,4vw,3rem);
-      font-weight:900;
-      letter-spacing:-0.03em;
-      margin-bottom:16px;
-      background:linear-gradient(135deg,var(--dark) 0%,#334155 100%);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-    }
-    
-    .page-hero p{
-      font-size:1.1rem;
-      color:var(--muted);
-      max-width:700px;
-      margin:0 auto 32px;
-      line-height:1.7;
-    }
-    
-    /* Tabs */
-    .tabs{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-    
-    .tab{
-      padding:12px 24px;
-      border-radius:12px;
-      border:2px solid var(--border);
-      background:#fff;
-      cursor:pointer;
-      font-weight:600;
-      font-size:0.95rem;
-      transition:all 0.3s ease;
-      color:var(--muted);
-    }
-    
-    .tab:hover{
-      border-color:var(--accent);
-      color:var(--dark);
-      transform:translateY(-2px);
-    }
-    
-    .tab.active{
-      background:linear-gradient(135deg,var(--accent),#c43d3d);
-      color:#fff;
-      border-color:var(--accent);
-      box-shadow:0 8px 20px rgba(217,74,74,0.25);
-    }
-    
-    /* Content Layout */
-    .content-grid{
-      display:grid;
-      grid-template-columns:1fr 360px;
-      gap:40px;
-      margin:60px 0;
-    }
-    
-    @media(max-width:1000px){
-      .content-grid{
-        grid-template-columns:1fr;
-        gap:32px;
-      }
-      
-      .sidebar{
-        order:-1;
-      }
-    }
-    
-    /* FAQ Section */
-    .faq-section{
-      display:none;
-    }
-    
-    .faq-section.active{
-      display:block;
-      animation:fadeIn 0.4s ease;
-    }
-    
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(10px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-    
-    .faq-section h2{
-      font-size:1.4rem;
-      font-weight:700;
-      margin-bottom:24px;
-      color:var(--dark);
-    }
-    
-    details{
-      background:#fff;
-      border-radius:var(--radius);
-      border:1px solid var(--border);
-      margin-bottom:16px;
-      padding:0;
-      overflow:hidden;
-      transition:all 0.3s ease;
-    }
-    
-    details:hover{
-      border-color:var(--accent);
-      box-shadow:0 4px 12px rgba(10,15,26,0.06);
-    }
-    
-    summary{
-      padding:20px 24px;
-      font-weight:600;
-      font-size:1.05rem;
-      cursor:pointer;
-      list-style:none;
-      position:relative;
-      transition:all 0.2s ease;
-      color:var(--dark);
-    }
-    
-    summary::-webkit-details-marker{
-      display:none;
-    }
-    
-    summary:hover{
-      color:var(--accent);
-    }
-    
-    summary::after{
-      content:'';
-      position:absolute;
-      right:24px;
-      top:50%;
-      transform:translateY(-50%);
-      width:24px;
-      height:24px;
-      background:var(--surface);
-      border-radius:8px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition:all 0.3s ease;
-    }
-    
-    summary::before{
-      content:'+';
-      position:absolute;
-      right:30px;
-      top:50%;
-      transform:translateY(-50%);
-      font-size:1.3rem;
-      font-weight:600;
-      color:var(--accent);
-      z-index:1;
-      transition:all 0.3s ease;
-    }
-    
-    details[open] summary::before{
-      content:'−';
-      transform:translateY(-50%) rotate(180deg);
-    }
-    
-    details[open] summary::after{
-      background:linear-gradient(135deg,rgba(217,74,74,0.1),rgba(217,74,74,0.15));
-    }
-    
-    .faq-body{
-      padding:0 24px 24px;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:1rem;
-    }
-    
-    /* Sidebar */
-    .help-card{
-      background:#fff;
-      padding:28px;
-      border-radius:var(--radius);
-      border:1px solid var(--border);
-      box-shadow:0 4px 12px rgba(10,15,26,0.04);
-      position:sticky;
-      top:24px;
-    }
-    
-    .help-card h3{
-      font-size:1.2rem;
-      font-weight:700;
-      margin-bottom:12px;
-      color:var(--dark);
-    }
-    
-    .help-card p{
-      color:var(--muted);
-      line-height:1.7;
-      margin-bottom:20px;
-    }
-    
-    .help-card .btn{
-      width:100%;
-      justify-content:center;
-      padding:14px 24px;
-    }
-    
-    .contact-info{
-      margin-top:20px;
-      padding-top:20px;
-      border-top:1px solid var(--border);
-    }
-    
-    .contact-info p{
-      font-size:0.92rem;
-      margin-bottom:0;
-    }
-    
-    .contact-link{
-      color:var(--accent);
-      text-decoration:none;
-      font-weight:600;
-      transition:color 0.2s ease;
-    }
-    
-    .contact-link:hover{
-      color:var(--accent-hover);
-      text-decoration:underline;
-    }
-    
-    /* Quick Links */
-    .quick-links{
-      background:var(--surface);
-      padding:28px;
-      border-radius:var(--radius);
-      margin-top:24px;
-    }
-    
-    .quick-links h4{
-      font-size:1.05rem;
-      font-weight:700;
-      margin-bottom:16px;
-      color:var(--dark);
-    }
-    
-    .quick-links a{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 0;
-      color:var(--muted);
-      text-decoration:none;
-      font-weight:500;
-      transition:all 0.2s ease;
-      border-bottom:1px solid var(--border);
-    }
-    
-    .quick-links a:last-child{
-      border-bottom:none;
-    }
-    
-    .quick-links a:hover{
-      color:var(--accent);
-      padding-left:8px;
-    }
-    
-    .quick-links a::before{
-      content:'→';
-      color:var(--accent);
-      font-weight:700;
-    }
-    
-    /* Footer */
-    footer{
-      margin-top:80px;
-      padding:60px 0 40px;
-      background:var(--dark);
-      color:rgba(255,255,255,0.7);
-    }
-    
-    .footer-content{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:40px;
-      margin-bottom:40px;
-    }
-    
-    .footer-brand{
-      font-size:1.5rem;
-      font-weight:800;
-      color:#fff;
-      margin-bottom:12px;
-    }
-    
-    .footer-links a{
-      display:block;
-      color:rgba(255,255,255,0.7);
-      text-decoration:none;
-      margin-bottom:10px;
-      transition:color 0.2s ease;
-    }
-    
-    .footer-links a:hover{color:#fff}
-    
-    .footer-bottom{
-      padding-top:30px;
-      border-top:1px solid rgba(255,255,255,0.1);
-      text-align:center;
-      font-size:0.9rem;
-    }
-    
-    @media(max-width:768px){
-      .nav-links{display:none}
-      .tabs{gap:8px}
-      .tab{padding:10px 16px;font-size:0.88rem}
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <nav class="wrap">
-    <a href="/" class="logo">Maisonly</a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/#waitlist" class="btn">Join waitlist</a>
+  <nav>
+    <div class="wrap">
+      <a href="/" class="logo">Maisonly</a>
+      <button class="nav-toggle">☰</button>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/#waitlist" class="btn">Join waitlist</a>
+      </div>
     </div>
   </nav>
 
   <main>
-    <section class="page-hero wrap">
-      <h1>Frequently asked questions</h1>
-      <p>Find answers to common questions about Maisonly. Select a category below to get started, or contact us directly for personalized help.</p>
-      
-      <div class="tabs">
-        <div class="tab active" data-tab="guests">For Guests</div>
-        <div class="tab" data-tab="students">For Students</div>
-        <div class="tab" data-tab="partners">For Partners</div>
+    <section class="page-hero">
+      <div class="wrap">
+        <h1>Frequently asked questions</h1>
+        <p>Find answers to common questions about Maisonly. Select a category below to get started, or contact us directly for personalized help.</p>
+        
+        <div class="tabs">
+          <div class="tab active" data-tab="guests">For Guests</div>
+          <div class="tab" data-tab="students">For Students</div>
+          <div class="tab" data-tab="partners">For Partners</div>
+        </div>
       </div>
     </section>
 
@@ -541,13 +141,6 @@
               <p style="margin-top:8px"><strong>Partners:</strong> <a href="mailto:partners@maisonly.io" class="contact-link">partners@maisonly.io</a></p>
             </div>
           </div>
-
-          <!-- <div class="quick-links">
-            <h4>Quick links</h4>
-            <a href="/">Home</a>
-            <a href="/about.html">About us</a>
-            <a href="/#waitlist">Join waitlist</a>
-          </div> -->
         </aside>
       </div>
     </div>
@@ -577,6 +170,26 @@
   </footer>
 
   <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    }
+
+    // Scroll effect for nav
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
     // Tab switching functionality
     const tabs = document.querySelectorAll('.tab');
     const sections = document.querySelectorAll('.faq-section');
