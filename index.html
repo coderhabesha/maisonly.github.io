@@ -652,8 +652,12 @@
   <nav id="nav">
     <div class="wrap">
       <a href="/" class="logo">Maisonly</a>
-      <button id="navToggle" class="nav-toggle">☰</button>
-      <div class="nav-links" id="navMenu">...</div>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">☰</button>
+      <div class="nav-links" id="navMenu">
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="#waitlist" class="btn btn-primary" style="font-size:0.9rem">Join waitlist</a>
+      </div>
     </div>
   </nav>
 
@@ -799,10 +803,13 @@
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveHRsZXJqeWVmdGpkZmNxdG1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3Nzg4NjIsImV4cCI6MjA3NzM1NDg2Mn0.Dj3qhP3tHPKUBAAadpN2b9dD9iolbPqk3wlsslRpj1o'
         );
 
-        document.getElementById('navToggle').addEventListener('click', () => {
-          document.getElementById('navMenu').classList.toggle('open');
+        const toggle = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+        
+        toggle.addEventListener('click', () => {
+          const isOpen = menu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen);
         });
-
       
         document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
           e.preventDefault();
