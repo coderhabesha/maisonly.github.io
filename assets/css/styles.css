@@ -924,6 +924,7 @@ footer{
 }
 
 @media(max-width:768px){
+    .wrap{padding:0 32px}
     .nav-toggle { display: block; }
     .nav-links {
         display: none;
@@ -932,7 +933,7 @@ footer{
         background: #fff;
         position: absolute;
         top: 64px;
-        right: 24px;
+        right: 32px;
         padding: 16px;
         border-radius: 12px;
         box-shadow: var(--shadow);
