@@ -101,6 +101,33 @@
     }
     
     .logo:hover{transform:scale(1.02)}
+
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      color: var(--dark);
+      cursor: pointer;
+    }
+    
+    @media(max-width:768px){
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 16px;
+        background: #fff;
+        position: absolute;
+        top: 64px;
+        right: 24px;
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        z-index: 99;
+      }
+      .nav-links.open { display: flex; }
+    }
     
     .nav-links{
       display:flex;
@@ -621,161 +648,148 @@
   </style>
 </head>
 <body>
-  <!-- <nav class="wrap" id="nav">
-    <a href="/" class="logo">Maisonly</a>
-    <div class="nav-links">
-      <a href="/about.html">About</a>
-      <!-- <a href="#how-it-works">How it works</a> -->
-      <!-- <a href="/faq.html">FAQ</a>
-      <a href="#waitlist" class="btn btn-primary" style="font-size:0.9rem">Join waitlist</a>
-    </div>
-  </nav> -->
 
   <nav id="nav">
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;">
-    <a href="/" class="logo">Maisonly</a>
-    <div class="nav-links">
-      <a href="/about.html">About</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="#waitlist" style="padding:10px 24px;font-size:0.9rem" class="btn btn-primary">Join waitlist</a>
+    <div class="wrap">
+      <a href="/" class="logo">Maisonly</a>
+      <button id="navToggle" class="nav-toggle">☰</button>
+      <div class="nav-links" id="navMenu">...</div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-
-    <main>
-      <section class="hero wrap">
-        <div class="hero-content">
-          <div class="badge">
-            <span>Join our launch waitlist</span>
-          </div>
-          
-          <h1>Restaurant-quality dinners, in the comfort of your home</h1>
-          
-          <p class="hero-subtitle">Experience exceptional private dining with vetted culinary students guided by expert mentors. Intimate, customizable menus for 2–6 guests with transparent pricing.</p>
-          
-          <div class="btn-group">
-            <a href="#waitlist" class="btn btn-primary">Join early access</a>
-            <a href="/about.html" class="btn btn-secondary">Learn more</a>
-          </div>
-          
-          <div class="trust-badges">
-            <div class="trust-item">Vetted chefs</div>
-            <div class="trust-item">Food-safety certified</div>
-            <div class="trust-item">Mentor oversight</div>
-          </div>
+  <main>
+    <section class="hero wrap">
+      <div class="hero-content">
+        <div class="badge">
+          <span>Join our launch waitlist</span>
         </div>
         
-        <div class="hero-visual">
-          <img class="hero-image" src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1600&q=80" alt="Elegant plated gourmet dish">
+        <h1>Restaurant-quality dinners, in the comfort of your home</h1>
+        
+        <p class="hero-subtitle">Experience exceptional private dining with vetted culinary students guided by expert mentors. Intimate, customizable menus for 2–6 guests with transparent pricing.</p>
+        
+        <div class="btn-group">
+          <a href="#waitlist" class="btn btn-primary">Join early access</a>
+          <a href="/about.html" class="btn btn-secondary">Learn more</a>
         </div>
-      </section>
-  
-      <section class="stats wrap">
-        <div class="stat-card">
-          <div class="stat-number">500+</div>
-          <div class="stat-label">Waitlist signups</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">2–6</div>
-          <div class="stat-label">Guest capacity</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Vetted chefs</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">Q3</div>
-          <div class="stat-label">2026 Launch</div>
-        </div>
-      </section>
-  
-      <section class="cta-section" id="waitlist">
-        <div class="cta-content wrap">
-          <h2>Be first to experience Maisonly</h2>
-          <p>Join our waitlist and help shape the future of private dining. Early members get exclusive launch benefits.</p>
-  
-          <form id="waitlistForm" style="display:grid;gap:12px;max-width:600px;margin:0 auto;">
-            <input name="name" id="name" type="text" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid var(--border);" />
-            <input name="email" id="email" type="email" placeholder="Email address" required style="padding:12px;border-radius:10px;border:1px solid var(--border);" />
-            <select name="role" id="role" required style="padding:12px;border-radius:10px;border:1px solid var(--border);">
-              <option value="">I am a...</option>
-              <option value="guest">Guest</option>
-              <option value="student">Chef / Student</option>
-            </select>
-            <button type="submit" class="btn btn-white">Join waitlist</button>
-            <div id="formNote" style="font-size:0.92rem;color:var(--muted);text-align:center;padding-top:8px;">Optional: 1-2 minute survey after submitting.</div>
-          </form>
-          
-          <div class="cta-note">
-            <span>🎁</span>
-            <span>Early waitlist members receive priority booking and exclusive launch discounts</span>
-          </div>
-        </div>
-      </section>
-    </main>
-  
-    <footer>
-      <div class="wrap">
-        <div class="footer-content">
-          <div>
-            <div class="footer-brand">Maisonly</div>
-            <p>Restaurant-quality dining at home</p>
-          </div>
-          <div class="footer-links">
-            <a href="/about.html">About</a>
-            <!-- <a href="/how-it-works.html">How it works</a> -->
-            <!-- <a href="/partners.html">Partners</a> -->
-          </div>
-          <div class="footer-links">
-            <a href="/faq.html">FAQ</a>
-            <!-- <a href="/book.html">Book now</a> -->
-            <a href="mailto:hello@maisonly.io">Contact</a>
-          </div>
-          <div class="footer-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <!-- <a href="#">Students</a> -->
-          </div>
-        </div>
-        <div class="footer-bottom">
-          © 2025 Maisonly. All rights reserved.
+        
+        <div class="trust-badges">
+          <div class="trust-item">Vetted chefs</div>
+          <div class="trust-item">Food-safety certified</div>
+          <div class="trust-item">Mentor oversight</div>
         </div>
       </div>
-    </footer>
+      
+      <div class="hero-visual">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1600&q=80" alt="Elegant plated gourmet dish">
+      </div>
+    </section>
 
-    <script>
-      // Add scrolled class to nav
-      window.addEventListener('scroll', () => {
-        const nav = document.getElementById('nav');
-        if (window.scrollY > 50) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
+    <section class="stats wrap">
+      <div class="stat-card">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Waitlist signups</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2–6</div>
+        <div class="stat-label">Guest capacity</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Vetted chefs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Q3</div>
+        <div class="stat-label">2026 Launch</div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="waitlist">
+      <div class="cta-content wrap">
+        <h2>Be first to experience Maisonly</h2>
+        <p>Join our waitlist and help shape the future of private dining. Early members get exclusive launch benefits.</p>
+
+        <form id="waitlistForm" style="display:grid;gap:12px;max-width:600px;margin:0 auto;">
+          <input name="name" id="name" type="text" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid var(--border);" />
+          <input name="email" id="email" type="email" placeholder="Email address" required style="padding:12px;border-radius:10px;border:1px solid var(--border);" />
+          <select name="role" id="role" required style="padding:12px;border-radius:10px;border:1px solid var(--border);">
+            <option value="">I am a...</option>
+            <option value="guest">Guest</option>
+            <option value="student">Chef / Student</option>
+          </select>
+          <button type="submit" class="btn btn-white">Join waitlist</button>
+          <div id="formNote" style="font-size:0.92rem;color:var(--muted);text-align:center;padding-top:8px;">Optional: 1-2 minute survey after submitting.</div>
+        </form>
+        
+        <div class="cta-note">
+          <span>🎁</span>
+          <span>Early waitlist members receive priority booking and exclusive launch discounts</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="wrap">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Maisonly</div>
+          <p>Restaurant-quality dining at home</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <!-- <a href="/how-it-works.html">How it works</a> -->
+          <!-- <a href="/partners.html">Partners</a> -->
+        </div>
+        <div class="footer-links">
+          <a href="/faq.html">FAQ</a>
+          <!-- <a href="/book.html">Book now</a> -->
+          <a href="mailto:hello@maisonly.io">Contact</a>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <!-- <a href="#">Students</a> -->
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Maisonly. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add scrolled class to nav
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
       });
-  
-      // Intersection Observer for fade-in animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-  
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, observerOptions);
-  
-      document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-      });
+    }, observerOptions);
+
+    document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
     </script>
 
       <script>
@@ -784,6 +798,11 @@
           'https://roxtlerjyeftjdfcqtmi.supabase.co',
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveHRsZXJqeWVmdGpkZmNxdG1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3Nzg4NjIsImV4cCI6MjA3NzM1NDg2Mn0.Dj3qhP3tHPKUBAAadpN2b9dD9iolbPqk3wlsslRpj1o'
         );
+
+        document.getElementById('navToggle').addEventListener('click', () => {
+          document.getElementById('navMenu').classList.toggle('open');
+        });
+
       
         document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
           e.preventDefault();
