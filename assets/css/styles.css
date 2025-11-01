@@ -942,7 +942,7 @@ footer{
         z-index: 99;
     }
     .nav-links.open { display: flex; }
-    .hero{padding:40px 0 60px}
+    .hero{padding:40px 24px 60px}
     .stats{padding:40px 0}
     .features{padding:60px 0}
     .cta-section{padding:60px 0}
