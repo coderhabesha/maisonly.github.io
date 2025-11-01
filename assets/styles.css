@@ -1,3 +1,6 @@
+/* ========================================
+   CSS VARIABLES & RESET
+   ======================================== */
 :root{
     --accent:#d94a4a;
     --accent-hover:#b83838;
@@ -51,7 +54,23 @@ body::before{
     padding:0 24px;
 }
 
-/* Navigation */
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
 nav {
     padding: 24px 0;
     display: flex;
@@ -130,7 +149,9 @@ nav.scrolled{
 
 .nav-links a:hover::after{width:100%}
 
-/* Hero Section */
+/* ========================================
+   HERO SECTION
+   ======================================== */
 .hero{
     padding:80px 24px 120px;
     position:relative;
@@ -200,7 +221,9 @@ h1{
     font-weight:400;
 }
 
-/* Buttons */
+/* ========================================
+   BUTTONS
+   ======================================== */
 .btn-group{
     display:flex;
     gap:14px;
@@ -233,10 +256,28 @@ h1{
     box-shadow:0 14px 40px rgba(217,74,74,0.35);
 }
 
-/* Button sizes */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .btn-lg{
     padding:16px 32px;
     font-size:1rem;
+}
+
+.btn-secondary {
+    background: #fff;
+    color: var(--dark) !important;
+    border: 2px solid var(--border);
+    box-shadow: 0 4px 12px rgba(10,15,26,0.08);
+}
+
+.btn-secondary:hover {
+    background: var(--surface);
+    border-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(10,15,26,0.12);
 }
 
 .btn::before{
@@ -257,7 +298,9 @@ h1{
     height:300px;
 }
 
-/* Trust badges */
+/* ========================================
+   TRUST BADGES
+   ======================================== */
 .trust-badges{
     display:flex;
     gap:16px;
@@ -300,7 +343,9 @@ h1{
     font-size:0.85rem;
 }
 
-/* Hero Visual */
+/* ========================================
+   HERO VISUAL
+   ======================================== */
 .hero-visual{
     position:absolute;
     top:50%;
@@ -333,7 +378,9 @@ h1{
     z-index:1;
 }
 
-/* Stats Section */
+/* ========================================
+   STATS SECTION
+   ======================================== */
 .stats{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -371,7 +418,9 @@ h1{
     font-size:0.95rem;
 }
 
-/* Features */
+/* ========================================
+   FEATURES SECTION
+   ======================================== */
 .features{
     padding:80px 0;
     background:var(--surface);
@@ -456,7 +505,9 @@ h1{
     line-height:1.7;
 }
 
-/* Page Hero */
+/* ========================================
+   PAGE HERO
+   ======================================== */
 .page-hero{
     padding:60px 0 40px;
     text-align:center;
@@ -482,7 +533,9 @@ h1{
     line-height:1.7;
 }
 
-/* Mission Section */
+/* ========================================
+   MISSION SECTION
+   ======================================== */
 .mission{
     padding:80px 0;
 }
@@ -516,7 +569,9 @@ h1{
     box-shadow:var(--shadow);
 }
 
-/* Process Section */
+/* ========================================
+   PROCESS SECTION
+   ======================================== */
 .process{
     padding:80px 0;
 }
@@ -560,7 +615,9 @@ h1{
     line-height:1.7;
 }
 
-/* Tabs */
+/* ========================================
+   TABS
+   ======================================== */
 .tabs{
     display:flex;
     gap:12px;
@@ -593,7 +650,9 @@ h1{
     box-shadow:0 8px 20px rgba(217,74,74,0.25);
 }
 
-/* Content Layout */
+/* ========================================
+   CONTENT LAYOUT
+   ======================================== */
 .content-grid{
     display:grid;
     grid-template-columns:1fr 360px;
@@ -601,7 +660,9 @@ h1{
     margin:60px 0;
 }
 
-/* FAQ Section */
+/* ========================================
+   FAQ SECTION
+   ======================================== */
 .faq-section{
     display:none;
 }
@@ -702,7 +763,9 @@ details[open] summary::after{
     font-size:1rem;
 }
 
-/* Sidebar */
+/* ========================================
+   SIDEBAR
+   ======================================== */
 .help-card{
     background:#fff;
     padding:28px;
@@ -755,49 +818,63 @@ details[open] summary::after{
     text-decoration:underline;
 }
 
-/* Quick Links */
-.quick-links{
-    background:var(--surface);
-    padding:28px;
-    border-radius:var(--radius);
-    margin-top:24px;
+/* ========================================
+   FORMS
+   ======================================== */
+#waitlistForm {
+    display: grid;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.quick-links h4{
-    font-size:1.05rem;
-    font-weight:700;
-    margin-bottom:16px;
-    color:var(--dark);
+#waitlistForm input,
+#waitlistForm select {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 1rem;
+    font-family: inherit;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    transition: all 0.3s ease;
 }
 
-.quick-links a{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:10px 0;
-    color:var(--muted);
-    text-decoration:none;
-    font-weight:500;
-    transition:all 0.2s ease;
-    border-bottom:1px solid var(--border);
+#waitlistForm input:focus,
+#waitlistForm select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(217,74,74,0.1);
 }
 
-.quick-links a:last-child{
-    border-bottom:none;
+#waitlistForm select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="%23666" d="M5 8l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+    padding-right: 40px;
+    cursor: pointer;
 }
 
-.quick-links a:hover{
-    color:var(--accent);
-    padding-left:8px;
+#formNote {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding-top: 8px;
+    transition: color 0.3s ease;
 }
 
-.quick-links a::before{
-    content:'→';
-    color:var(--accent);
-    font-weight:700;
+#formNote.error {
+    color: #ffcccb;
 }
 
-/* CTA Section */
+/* ========================================
+   CTA SECTION
+   ======================================== */
 .cta-section{
     padding:100px 0;
     text-align:center;
@@ -854,7 +931,27 @@ details[open] summary::after{
     box-shadow:0 14px 40px rgba(255,255,255,0.3);
 }
 
-/* Footer */
+.cta-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+    padding: 16px 24px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.cta-note span:first-child {
+    font-size: 1.5rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
 footer{
     padding:60px 0 40px;
     background:var(--dark);
@@ -892,7 +989,9 @@ footer{
     font-size:0.9rem;
 }
 
-/* Media Queries */
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
 @media(max-width:1100px){
     .hero-visual{
         position:static;
@@ -946,4 +1045,9 @@ footer{
     .cta-section{padding:60px 0}
     .tabs{gap:8px}
     .tab{padding:10px 16px;font-size:0.88rem}
+    .cta-note {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
 }
