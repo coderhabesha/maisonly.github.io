@@ -149,6 +149,18 @@ nav.scrolled{
 
 .nav-links a:hover::after{width:100%}
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* ========================================
    HERO SECTION
    ======================================== */
@@ -219,6 +231,21 @@ h1{
     line-height:1.7;
     margin-bottom:36px;
     font-weight:400;
+}
+
+/* Hero logo */
+.hero-logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .hero-logo {
+    max-width: 220px;
+  }
 }
 
 /* ========================================

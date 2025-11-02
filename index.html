@@ -15,12 +15,15 @@
     <title>Maisonly — Private Chef Dinners</title>
     <meta name="description" content="Restaurant-quality private dinners in your home prepared by vetted culinary students with mentor oversight."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
     <nav id="nav">
       <div class="wrap">
-        <a href="/" class="logo">Maisonly</a>
+        <a href="/" class="logo">
+          <img src="assets/images/maisonly_logo.png" alt="Maisonly" class="logo-icon">
+          <span>Maisonly</span>
+        </a>
         <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation menu">☰</button>
         <div class="nav-links" id="navMenu">
           <a href="/about.html">About</a>
@@ -33,6 +36,7 @@
     <main>
       <section class="hero wrap">
         <div class="hero-content">
+          <!-- <img src="assets/images/maisonly_logo.png" alt="Maisonly - Private chef experiences" class="hero-logo"> -->
           <div class="badge">
             <span>Join our launch waitlist</span>
           </div>
@@ -114,6 +118,16 @@
               <option value="guest">Guest</option>
               <option value="student">Chef / Student</option>
             </select>
+
+
+            <!-- hidden fields for location and utm -->
+            <input type="hidden" name="utm_source" id="utm_source">
+            <input type="hidden" name="utm_medium" id="utm_medium">
+            <input type="hidden" name="utm_campaign" id="utm_campaign">
+            <input type="hidden" name="user_city" id="user_city">
+            <input type="hidden" name="user_region" id="user_region">
+            <input type="hidden" name="user_zip" id="user_zip">
+
             
             <button type="submit" class="btn btn-lg" id="submitBtn">Join waitlist</button>
             

@@ -8,6 +8,37 @@ if (typeof window.supabase !== 'undefined') {
   );
 }
 
+// Track user metadata (UTM params and location)
+function trackUserMetadata() {
+  const params = new URLSearchParams(window.location.search);
+  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+  // Store UTM parameters
+  utmKeys.forEach(key => {
+    if (params.has(key)) {
+      localStorage.setItem(key, params.get(key));
+    }
+  });
+
+  // Return a promise that resolves when location data is stored
+  return fetch('https://ipinfo.io/json?token=88ecb60e4e95cc')
+    .then(res => res.json())
+    .then(data => {
+      localStorage.setItem('user_city', data.city || '');
+      localStorage.setItem('user_region', data.region || '');
+      localStorage.setItem('user_zip', data.postal || '');
+    })
+    .catch(err => {
+      console.warn('Location fetch failed:', err);
+      localStorage.setItem('user_city', '');
+      localStorage.setItem('user_region', '');
+      localStorage.setItem('user_zip', '');
+    });
+}
+
+// Run tracking on page load
+trackUserMetadata();
+
 // Mobile navigation toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-links');
@@ -58,43 +89,68 @@ const waitlistForm = document.getElementById('waitlistForm');
 if (waitlistForm && supabase) {
   waitlistForm.addEventListener('submit', async function(e) {
     e.preventDefault();
-
+  
+    // Ensure tracking data is loaded
+    await trackUserMetadata();
+  
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const roleSelect = document.getElementById('role');
     const submitBtn = document.getElementById('submitBtn');
     const formNote = document.getElementById('formNote');
-
+  
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const role = roleSelect.value;
-
+  
     // Validation
     if (!name || !email || !role) {
       formNote.textContent = 'Please fill in all fields.';
       formNote.classList.add('error');
       return;
     }
-
+  
     // Disable button and show loading state
     submitBtn.disabled = true;
     submitBtn.textContent = 'Joining...';
-
+  
+    // Get tracking data from localStorage
+    const utm_source = localStorage.getItem('utm_source') || '';
+    const utm_medium = localStorage.getItem('utm_medium') || '';
+    const utm_campaign = localStorage.getItem('utm_campaign') || '';
+    const utm_term = localStorage.getItem('utm_term') || '';
+    const utm_content = localStorage.getItem('utm_content') || '';
+    const user_city = localStorage.getItem('user_city') || '';
+    const user_region = localStorage.getItem('user_region') || '';
+    const user_zip = localStorage.getItem('user_zip') || '';
+  
+    const payload = {
+      name,
+      email,
+      role,
+      utm_source,
+      utm_medium,
+      utm_campaign,
+      utm_term,
+      utm_content,
+      user_city,
+      user_region,
+      user_zip
+    };
+  
+    console.log('Submitting payload:', payload);
+  
     try {
-      const { error } = await supabase
-        .from('waitlist')
-        .insert([{ name, email, role }]);
-
-      if (error) {
-        throw error;
-      }
-
-      // Success - redirect to survey
+      const { error } = await supabase.from('waitlist').insert([payload]);
+  
+      if (error) throw error;
+  
+      // Success - redirect to appropriate survey
       const guestForm = 'https://forms.gle/faNkDNyr5DWmUFWW6';
       const studentForm = 'https://forms.gle/j2tSD7F1EjgwMei4A';
       const redirectUrl = role === 'student' ? studentForm : guestForm;
       window.location.href = redirectUrl;
-      
+  
     } catch (error) {
       console.error('Submission error:', error);
       formNote.textContent = 'Submission failed. Please try again or contact us directly at hello@maisonly.io';
