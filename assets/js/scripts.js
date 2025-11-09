@@ -147,7 +147,7 @@ if (waitlistForm && supabase) {
   
       // Success - redirect to appropriate survey
       const guestForm = 'https://forms.gle/faNkDNyr5DWmUFWW6';
-      const studentForm = 'https://forms.gle/j2tSD7F1EjgwMei4A';
+      const studentForm = 'https://forms.gle/pnR4cDTE2AGAVKQd9';
       const redirectUrl = role === 'student' ? studentForm : guestForm;
       window.location.href = redirectUrl;
   
