@@ -87,33 +87,29 @@ document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
 // Waitlist form submission (homepage only)
 const waitlistForm = document.getElementById('waitlistForm');
 if (waitlistForm && supabase) {
-  waitlistForm.addEventListener('submit', async function(e) {
+  waitlistForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-  
+
     // Ensure tracking data is loaded
     await trackUserMetadata();
-  
-    const nameInput = document.getElementById('name');
+
     const emailInput = document.getElementById('email');
-    const roleSelect = document.getElementById('role');
     const submitBtn = document.getElementById('submitBtn');
     const formNote = document.getElementById('formNote');
-  
-    const name = nameInput.value.trim();
+
     const email = emailInput.value.trim();
-    const role = roleSelect.value;
-  
+
     // Validation
-    if (!name || !email || !role) {
-      formNote.textContent = 'Please fill in all fields.';
+    if (!email) {
+      formNote.textContent = 'Please enter your email address.';
       formNote.classList.add('error');
       return;
     }
-  
+
     // Disable button and show loading state
     submitBtn.disabled = true;
     submitBtn.textContent = 'Joining...';
-  
+
     // Get tracking data from localStorage
     const utm_source = localStorage.getItem('utm_source') || '';
     const utm_medium = localStorage.getItem('utm_medium') || '';
@@ -123,11 +119,11 @@ if (waitlistForm && supabase) {
     const user_city = localStorage.getItem('user_city') || '';
     const user_region = localStorage.getItem('user_region') || '';
     const user_zip = localStorage.getItem('user_zip') || '';
-  
+
     const payload = {
-      name,
       email,
-      role,
+      name: '', // Empty since we removed it
+      role: 'guest', // Default to guest
       utm_source,
       utm_medium,
       utm_campaign,
@@ -137,25 +133,40 @@ if (waitlistForm && supabase) {
       user_region,
       user_zip
     };
-  
+
     console.log('Submitting payload:', payload);
-  
+
     try {
       const { error } = await supabase.from('waitlist').insert([payload]);
-  
+
       if (error) throw error;
-  
-      // Success - redirect to appropriate survey
-      const guestForm = 'https://forms.gle/faNkDNyr5DWmUFWW6';
-      const studentForm = 'https://forms.gle/pnR4cDTE2AGAVKQd9';
-      const redirectUrl = role === 'student' ? studentForm : guestForm;
-      window.location.href = redirectUrl;
-  
+
+      // Success - show success message and reset form
+      formNote.textContent = '✓ Success! Check your email for next steps.';
+      formNote.classList.remove('error');
+      formNote.style.color = '#10b981';
+      emailInput.value = '';
+
+      // Re-enable button after 2 seconds
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Join waitlist';
+        formNote.textContent = "You'll receive priority booking when we launch in Q1 2026";
+        formNote.style.color = '';
+      }, 3000);
+
     } catch (error) {
       console.error('Submission error:', error);
-      formNote.textContent = 'Submission failed. Please try again or contact us directly at hello@maisonly.io';
+
+      // Check if it's a duplicate email error
+      if (error.code === '23505' || error.message.includes('duplicate')) {
+        formNote.textContent = "You're already on the waitlist! Check your email for updates.";
+      } else {
+        formNote.textContent = 'Submission failed. Please try again or contact us at hello@maisonly.io';
+      }
+
       formNote.classList.add('error');
-      
+
       // Re-enable button
       submitBtn.disabled = false;
       submitBtn.textContent = 'Join waitlist';
@@ -173,10 +184,10 @@ if (tabs.length > 0 && sections.length > 0) {
       // Remove active class from all tabs and sections
       tabs.forEach(t => t.classList.remove('active'));
       sections.forEach(s => s.classList.remove('active'));
-      
+
       // Add active class to clicked tab
       tab.classList.add('active');
-      
+
       // Show corresponding section
       const targetId = tab.getAttribute('data-tab');
       const targetSection = document.getElementById(targetId);
