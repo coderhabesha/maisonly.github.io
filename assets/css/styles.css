@@ -1040,36 +1040,53 @@ details[open] summary::after {
 /* ========================================
    FOOTER
    ======================================== */
+/* ========================================
+   FOOTER
+   ======================================== */
 footer {
-    padding: 60px 0 40px;
+    padding: 80px 0 40px;
     background: var(--dark);
     color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
     margin-bottom: 40px;
 }
 
+.footer-brand-section {
+    max-width: 400px;
+}
+
 .footer-brand {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: #fff;
     margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .footer-links a {
-    display: block;
+    display: inline-block;
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    margin-bottom: 10px;
+    font-weight: 500;
     transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-    color: #fff
+    color: #fff;
 }
 
 .footer-bottom {
@@ -1313,4 +1330,49 @@ footer {
     .hero-form-card h2 {
         font-size: 1.5rem;
     }
+}
+
+/* ========================================
+   REQUIREMENTS SECTION (Added from chefs.html)
+   ======================================== */
+.requirements {
+    padding: 80px 0;
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.requirement-item {
+    padding: 24px;
+    background: #fff;
+    border-radius: var(--radius);
+    border: 2px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.requirement-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.requirement-item h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--dark);
+}
+
+.requirement-item p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.hero-with-form .wrap {
+    display: contents;
 }

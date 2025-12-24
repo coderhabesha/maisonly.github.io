@@ -96,6 +96,7 @@ if (waitlistForm && supabase) {
     const emailInput = document.getElementById('email');
     const submitBtn = document.getElementById('submitBtn');
     const formNote = document.getElementById('formNote');
+    const sourceInput = document.getElementById('source');
 
     const email = emailInput.value.trim();
 
@@ -123,7 +124,7 @@ if (waitlistForm && supabase) {
     const payload = {
       email,
       name: '', // Empty since we removed it
-      role: 'guest', // Default to guest
+      role: sourceInput ? sourceInput.value : 'guest', // Use source if available, otherwise guest
       utm_source,
       utm_medium,
       utm_campaign,
