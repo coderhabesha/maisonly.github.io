@@ -9,7 +9,8 @@ if (typeof window.supabase !== 'undefined') {
 }
 
 // Track user metadata (UTM params and location)
-function trackUserMetadata() {
+// Track user metadata (UTM params and location)
+async function trackUserMetadata() {
   const params = new URLSearchParams(window.location.search);
   const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
 
@@ -20,24 +21,74 @@ function trackUserMetadata() {
     }
   });
 
-  // Return a promise that resolves when location data is stored
-  return fetch('https://ipinfo.io/json?token=88ecb60e4e95cc')
-    .then(res => res.json())
-    .then(data => {
-      localStorage.setItem('user_city', data.city || '');
-      localStorage.setItem('user_region', data.region || '');
-      localStorage.setItem('user_zip', data.postal || '');
-    })
-    .catch(err => {
-      console.warn('Location fetch failed:', err);
-      localStorage.setItem('user_city', '');
-      localStorage.setItem('user_region', '');
-      localStorage.setItem('user_zip', '');
-    });
+  // Return a promise that resolves when location data is available
+  try {
+    const res = await fetch('https://ipinfo.io/json?token=88ecb60e4e95cc');
+    const data = await res.json();
+
+    // Store in local storage for later use (e.g. forms)
+    localStorage.setItem('user_city', data.city || '');
+    localStorage.setItem('user_region', data.region || '');
+    localStorage.setItem('user_zip', data.postal || '');
+
+    // Return all data including IP
+    return {
+      ip: data.ip,
+      city: data.city,
+      region: data.region,
+      country: data.country,
+      loc: data.loc,
+      org: data.org,
+      postal: data.postal,
+      timezone: data.timezone
+    };
+  } catch (err) {
+    console.warn('Location fetch failed:', err);
+    localStorage.setItem('user_city', '');
+    localStorage.setItem('user_region', '');
+    localStorage.setItem('user_zip', '');
+    return null;
+  }
+}
+
+// Track visit to Supabase
+async function trackVisit() {
+  if (!supabase) return;
+
+  try {
+    const locationData = await trackUserMetadata();
+
+    // Construct metadata object
+    const metadata = {
+      timestamp: new Date().toISOString(),
+      url: window.location.href,
+      referrer: document.referrer,
+      userAgent: navigator.userAgent,
+      ...locationData // spread location data which includes IP if available
+    };
+
+    // Insert into track_visitors table
+    const { error } = await supabase
+      .from('track_visitors')
+      .insert([{ metadata: metadata }]); // Assuming column name is 'metadata'
+
+    if (error) {
+      console.error('Error tracking visit:', error);
+    } else {
+      console.log('Visit tracked successfully');
+    }
+
+  } catch (err) {
+    console.error('Tracking failed:', err);
+  }
 }
 
 // Run tracking on page load
-trackUserMetadata();
+// Use DOMContentLoaded to ensure Supabase might be ready if it was deferred, 
+// though here it is initialized at the top.
+document.addEventListener('DOMContentLoaded', () => {
+  trackVisit();
+});
 
 // Mobile navigation toggle
 const navToggle = document.querySelector('.nav-toggle');
