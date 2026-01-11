@@ -1,8 +1,8 @@
 // Initialize Supabase client (only needed on pages with waitlist form)
-let supabase = null;
+let supabaseClient = null;
 if (typeof window.supabase !== 'undefined') {
   const { createClient } = window.supabase;
-  supabase = createClient(
+  supabaseClient = createClient(
     'https://roxtlerjyeftjdfcqtmi.supabase.co',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJveHRsZXJqeWVmdGpkZmNxdG1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3Nzg4NjIsImV4cCI6MjA3NzM1NDg2Mn0.Dj3qhP3tHPKUBAAadpN2b9dD9iolbPqk3wlsslRpj1o'
   );
@@ -68,7 +68,7 @@ async function trackVisit() {
     };
 
     // Insert into track_visitors table
-    const { error } = await supabase
+    const { error } = await supabaseClient
       .from('track_visitors')
       .insert([{ ip_info: ip_info }]);
 
@@ -137,7 +137,7 @@ document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
 
 // Waitlist form submission (homepage only)
 const waitlistForm = document.getElementById('waitlistForm');
-if (waitlistForm && supabase) {
+if (waitlistForm && supabaseClient) {
   waitlistForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -189,7 +189,7 @@ if (waitlistForm && supabase) {
     console.log('Submitting payload:', payload);
 
     try {
-      const { error } = await supabase.from('waitlist').insert([payload]);
+      const { error } = await supabaseClient.from('waitlist').insert([payload]);
 
       if (error) throw error;
 
