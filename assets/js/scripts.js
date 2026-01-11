@@ -59,7 +59,7 @@ async function trackVisit() {
     const locationData = await trackUserMetadata();
 
     // Construct metadata object
-    const metadata = {
+    const ip_info = {
       timestamp: new Date().toISOString(),
       url: window.location.href,
       referrer: document.referrer,
@@ -70,7 +70,7 @@ async function trackVisit() {
     // Insert into track_visitors table
     const { error } = await supabase
       .from('track_visitors')
-      .insert([{ metadata: metadata }]); // Assuming column name is 'metadata'
+      .insert([{ ip_info: ip_info }]);
 
     if (error) {
       console.error('Error tracking visit:', error);
