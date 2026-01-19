@@ -52,8 +52,13 @@ async function trackUserMetadata() {
 }
 
 // Track visit to Supabase
+// Track visit to Supabase
 async function trackVisit() {
-  if (!supabase) return;
+  // FIX 1: Change from 'supabase' to 'supabaseClient'
+  if (!supabaseClient) {
+    console.warn('Supabase client not initialized');
+    return;
+  }
 
   try {
     const locationData = await trackUserMetadata();
@@ -67,15 +72,17 @@ async function trackVisit() {
       ...locationData // spread location data which includes IP if available
     };
 
+    console.log('Attempting to track visit with data:', ip_info); // Add logging
+
     // Insert into track_visitors table
-    const { error } = await supabaseClient
+    const { data, error } = await supabaseClient
       .from('track_visitors')
       .insert([{ ip_info: ip_info }]);
 
     if (error) {
       console.error('Error tracking visit:', error);
     } else {
-      console.log('Visit tracked successfully');
+      console.log('Visit tracked successfully', data);
     }
 
   } catch (err) {
@@ -83,15 +90,19 @@ async function trackVisit() {
   }
 }
 
+// FIX 2: Ensure Supabase is loaded before tracking
 // Run tracking on page load
-// Use DOMContentLoaded to ensure Supabase might be ready if it was deferred, 
-// though here it is initialized at the top.
-document.addEventListener('DOMContentLoaded', () => {
-  trackVisit();
-});
+if (typeof window !== 'undefined') {
+  // Use window.onload to ensure Supabase script is fully loaded
+  window.addEventListener('load', () => {
+    // Add a small delay to ensure Supabase client is initialized
+    setTimeout(() => {
+      trackVisit();
+    }, 100);
+  });
+}
 
-// Mobile navigation toggle
-const navToggle = document.querySelector('.nav-toggle');
+const navToggle = document.getElementById('navToggle');
 const navMenu = document.querySelector('.nav-links');
 
 if (navToggle && navMenu) {
