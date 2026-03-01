@@ -204,6 +204,13 @@ if (waitlistForm && supabaseClient) {
 
       if (error) throw error;
 
+      // --- GOOGLE ADS CONVERSION TRACKING ---
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-959510559/31lkCJCpmYEcEJ_ww8kD'
+        });
+      }
+
       // Success - show success message and reset form
       formNote.textContent = '✓ Success! Check your email for next steps.';
       formNote.classList.remove('error');
