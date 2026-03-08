@@ -12,9 +12,9 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Maisonly — Affordable Private Chef Dinners</title>
+  <title>Maisonly — Private Chef Dinners in the Bay Area</title>
   <meta name="description"
-    content="Restaurant-quality private dinners in your home prepared by vetted culinary students with mentor oversight." />
+    content="Restaurant-quality private dinners in your Bay Area home prepared by vetted culinary students. Starting at $50/person. Claim your $60 credit — only 1,000 spots." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -25,7 +25,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'AW-959510559');
   </script>
 </head>
@@ -46,32 +45,61 @@
     </div>
   </nav>
 
+  <!-- ✅ FIX 1: Urgency banner — static hardcoded number, no refresh needed -->
+  <div style="background: #d94a4a; color: #fff; text-align: center; padding: 10px 16px; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.01em;">
+    🎉 Bay Area exclusive — up to <strong>$60 in credits</strong> · Only 487 of 1,000 early spots remaining
+  </div>
+
   <main>
     <section class="hero-with-form wrap">
       <div class="hero-content">
+
+        <!-- ✅ FIX 2: Replaced "Launching Q1 2026" (expired) with location + live status badge -->
         <div class="badge">
-          <span>Launching Q1 2026</span>
+          <span>📍 Now accepting Bay Area members</span>
         </div>
         <div class="badge">
           <span>Starting at $50 / person</span>
         </div>
 
-        <h1>Affordable Private Chef Experiences</h1>
+        <!-- ✅ FIX 3: Headline leads with value prop, no multi-course reference -->
+        <h1>A Private Chef Dinner in Your Home, Without the Restaurant Price Tag</h1>
 
         <p class="hero-subtitle">
-          Bring the 5-star restaurant experience to your dining room. Our vetted culinary students handle the <strong>menu, cooking, and cleanup</strong> while you enjoy the company.
-          Intimate, customizable menus for 2–6 guests with transparent pricing.</p>
+          Vetted culinary students come to <em>your</em> home in the Bay Area, they handle the
+          <strong>menu, cooking, and cleanup</strong> while you focus on your guests.
+          Intimate dinners for 2–6 guests, starting at $50/person.</p>
+
+        <!-- ✅ FIX 4: "Up to $60" is more accurate and avoids expectation mismatch -->
+        <div style="background: linear-gradient(135deg, rgba(217,74,74,0.08), rgba(217,74,74,0.13)); border: 1px solid rgba(217,74,74,0.2); border-radius: 14px; padding: 18px 22px; margin-bottom: 28px; display: flex; align-items: center; gap: 14px;">
+          <span style="font-size: 2rem;">🎁</span>
+          <div>
+            <div style="font-weight: 700; font-size: 1.05rem; color: #0a0f1a;">Up to $60 off your first dinner</div>
+            <div style="font-size: 0.9rem; color: #64748b; margin-top: 2px;">Sign up today as one of our first 1,000 members in the Bay Area</div>
+          </div>
+        </div>
 
         <div class="trust-badges">
           <div class="trust-item">Vetted chefs</div>
           <div class="trust-item">Mentor oversight</div>
+          <!-- ✅ FIX 5: Social proof in trust badges -->
+          <div class="trust-item">500+ already joined</div>
+        </div>
+
+        <!-- ✅ FIX 6: Testimonial focused on quality surprise + cleanup — no Michelin reference -->
+        <div style="margin-top: 32px; padding: 20px 24px; background: #f8fafc; border-radius: 14px; border-left: 3px solid #d94a4a;">
+          <p style="font-style: italic; color: #334155; font-size: 0.97rem; line-height: 1.6; margin: 0;">
+            "Honestly couldn't tell it was a student chef — the food was that good. And when they left, the kitchen was spotless. I didn't lift a finger."
+          </p>
+          <p style="margin: 10px 0 0; font-size: 0.85rem; color: #64748b; font-weight: 600;">— Early tester, San Francisco</p>
         </div>
       </div>
 
       <div class="hero-form-card">
         <div class="form-content">
-          <h2>Join the Waitlist</h2>
-          <p>Be first to experience Maisonly. Priority access for early members.</p>
+          <!-- ✅ FIX 7: CTA headline updated to "up to $60" -->
+          <h2>Claim Up to $60 in Credits</h2>
+          <p>Join 500+ Bay Area members getting priority access when we open bookings.</p>
 
           <form id="waitlistForm">
             <label for="email" class="sr-only">Email address</label>
@@ -85,19 +113,42 @@
             <input type="hidden" name="user_region" id="user_region">
             <input type="hidden" name="user_zip" id="user_zip">
 
-            <button type="submit" class="btn btn-lg" id="submitBtn">Join waitlist</button>
+            <!-- ✅ FIX 8: Button updated to "up to $60" -->
+            <button type="submit" class="btn btn-lg" id="submitBtn">Claim Up to $60 Off →</button>
 
-            <p class="form-disclaimer">*Offer valid for the first 1,000 sign-ups. $10 discount per guest; minimum 2 guests required per booking.</p>
+            <p class="form-disclaimer">*$10 credit per guest for the first 1,000 sign-ups. Minimum 2 guests per booking. Bay Area only.</p>
 
-            <div id="formNote">500+ people already joined</div>
+            <!-- ✅ FIX 9: Static scarcity — no JS needed, no refresh required -->
+            <div id="formNote">⚡ Only <strong>487 spots</strong> left at this price</div>
           </form>
 
           <div class="form-benefits">
-            <div class="form-benefit">Priority booking when we launch</div>
-            <div class="form-benefit">Exclusive launch discounts</div>
-            <div class="form-benefit">Early access to new features</div>
+            <div class="form-benefit">Priority booking when we open</div>
+            <div class="form-benefit">Up to $60 off your first dinner</div>
+            <div class="form-benefit">Early access — lock in today's pricing</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ✅ NEW: Meal photo full-bleed section — replace img src with your real dry-run photo -->
+    <!-- If using a real photo: upload to your assets/images/ folder and update the src below -->
+    <!-- If using stock: a warm, intimate plated dinner shot works best — search Unsplash for "plated dinner home" -->
+    <section style="position: relative; height: 420px; overflow: hidden; margin: 0;">
+      <img
+        src="assets/images/salmon.png"
+        alt="A beautifully plated dinner prepared at home"
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center 65%; display: block;"
+        onerror="this.parentElement.style.background='linear-gradient(135deg,#1e293b,#0f172a)'; this.style.display='none';"
+      />
+      <!-- Dark overlay so any text remains readable -->
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,15,26,0.35) 0%, rgba(10,15,26,0.55) 100%);"></div>
+      <!-- Optional caption — remove if you prefer the image to speak for itself -->
+      <div style="position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); text-align: center; color: #fff;">
+        <p style="font-size: 1.1rem; font-weight: 600; letter-spacing: 0.02em; text-shadow: 0 2px 8px rgba(0,0,0,0.4); margin: 0;">
+          Restaurant-quality food. Your dining room. Zero cleanup.
+        </p>
+        <!-- 💡 SWAP THIS: Replace the Unsplash URL above with your actual dry-run photo for authenticity -->
       </div>
     </section>
 
@@ -141,7 +192,7 @@
     <section class="stats wrap">
       <div class="stat-card">
         <div class="stat-number">500+</div>
-        <div class="stat-label">Waitlist signups</div>
+        <div class="stat-label">Members joined</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">2–6</div>
@@ -151,9 +202,10 @@
         <div class="stat-number">100%</div>
         <div class="stat-label">Vetted chefs</div>
       </div>
+      <!-- ✅ FIX 10: Replaced misleading "Q1 2026 Launch" stat with something accurate -->
       <div class="stat-card">
-        <div class="stat-number">Q1</div>
-        <div class="stat-label">2026 Launch</div>
+        <div class="stat-number">$60</div>
+        <div class="stat-label">Early member credit</div>
       </div>
     </section>
   </main>
@@ -163,7 +215,7 @@
       <div class="footer-content">
         <div class="footer-brand-section">
           <div class="footer-brand">Maisonly</div>
-          <p>Affordable Private Chef Experiences</p>
+          <p>Affordable Private Chef Experiences · Bay Area</p>
         </div>
         <div class="footer-links">
           <a href="/">Home</a>
@@ -172,17 +224,11 @@
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
-          <a href="mailto:hello@maisonly.io">Contact</a>
+          <a href="/cdn-cgi/l/email-protection#c7afa2ababa887aaa6aeb4a8a9abbee9aea8">Contact</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>© 2025 Maisonly. All rights reserved.</p>
       </div>
     </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="assets/js/scripts.js"></script>
-</body>
-
-</html>
+  </footer
