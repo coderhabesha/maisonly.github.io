@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Send API Request
         run: |
-          curl -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/chefs?select=id&limit=1" \
+          curl -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/track_visitors?select=id&limit=1" \
           -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
