@@ -15,8 +15,9 @@
   <title>Maisonly — Private Chef Dinners in the Bay Area</title>
   <meta name="description"
     content="Restaurant-quality private dinners in your Bay Area home prepared by vetted culinary students. Starting at $50/person. Claim your $60 credit — only 1,000 spots." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <!-- Google tag (gtag.js) -->
@@ -45,9 +46,9 @@
     </div>
   </nav>
 
-  <!-- ✅ FIX 1: Urgency banner — static hardcoded number, no refresh needed -->
-  <div style="background: #d94a4a; color: #fff; text-align: center; padding: 10px 16px; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.01em;">
-    🎉 Bay Area exclusive — up to <strong>$60 in credits</strong> · Only 487 of 1,000 early spots remaining
+  <!-- ✅ FIX 1: Urgency banner — improved contrast for WCAG AA -->
+  <div style="background: #a32222; color: #fff; text-align: center; padding: 10px 16px; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.01em;">
+    🎉 Bay Area exclusive — Join our first 1,000 hosts for priority access and founding credits
   </div>
 
   <main>
@@ -56,7 +57,7 @@
 
         <!-- ✅ FIX 2: Replaced "Launching Q1 2026" (expired) with location + live status badge -->
         <div class="badge">
-          <span>📍 Now accepting Bay Area members</span>
+          <span>📍 Now accepting Bay Area hosts</span>
         </div>
         <div class="badge">
           <span>Starting at $50 / person</span>
@@ -70,15 +71,6 @@
           <strong>menu, cooking, and cleanup</strong> while you focus on your guests.
           Intimate dinners for 2–6 guests, starting at $50/person.</p>
 
-        <!-- ✅ FIX 4: "Up to $60" is more accurate and avoids expectation mismatch -->
-        <div style="background: linear-gradient(135deg, rgba(217,74,74,0.08), rgba(217,74,74,0.13)); border: 1px solid rgba(217,74,74,0.2); border-radius: 14px; padding: 18px 22px; margin-bottom: 28px; display: flex; align-items: center; gap: 14px;">
-          <span style="font-size: 2rem;">🎁</span>
-          <div>
-            <div style="font-weight: 700; font-size: 1.05rem; color: #0a0f1a;">Up to $60 off your first dinner</div>
-            <div style="font-size: 0.9rem; color: #64748b; margin-top: 2px;">Sign up today as one of our first 1,000 members in the Bay Area</div>
-          </div>
-        </div>
-
         <div class="trust-badges">
           <div class="trust-item">Vetted chefs</div>
           <div class="trust-item">Mentor oversight</div>
@@ -89,7 +81,7 @@
         <!-- ✅ FIX 6: Testimonial focused on quality surprise + cleanup — no Michelin reference -->
         <div style="margin-top: 32px; padding: 20px 24px; background: #f8fafc; border-radius: 14px; border-left: 3px solid #d94a4a;">
           <p style="font-style: italic; color: #334155; font-size: 0.97rem; line-height: 1.6; margin: 0;">
-            "Honestly couldn't tell it was a student chef — the food was that good. And when they left, the kitchen was spotless. I didn't lift a finger."
+            "Honestly couldn't tell it was a student chef — the food was that good. And when they left, the kitchen was spotless."
           </p>
           <p style="margin: 10px 0 0; font-size: 0.85rem; color: #64748b; font-weight: 600;">— Early tester, San Francisco</p>
         </div>
@@ -98,12 +90,12 @@
       <div class="hero-form-card">
         <div class="form-content">
           <!-- ✅ FIX 7: CTA headline updated to "up to $60" -->
-          <h2>Claim Up to $60 in Credits</h2>
-          <p>Join 500+ Bay Area members getting priority access when we open bookings.</p>
+          <h2>Get Early Access to Book</h2>
+          <p>Join 500+ Bay Area hosts getting priority access when we open bookings.</p>
 
           <form id="waitlistForm">
-            <label for="email" class="sr-only">Email address</label>
-            <input name="email" id="email" type="email" placeholder="Enter your email" required aria-required="true" />
+            <label for="email" class="form-label">Email address</label>
+            <input name="email" id="email" type="email" required aria-required="true" />
 
             <!-- hidden fields for location and utm -->
             <input type="hidden" name="utm_source" id="utm_source">
@@ -118,13 +110,13 @@
 
             <p class="form-disclaimer">*$10 credit per guest for the first 1,000 sign-ups. Minimum 2 guests per booking. Bay Area only.</p>
 
-            <!-- ✅ FIX 9: Static scarcity — no JS needed, no refresh required -->
-            <div id="formNote">⚡ Only <strong>487 spots</strong> left at this price</div>
+            <!-- ✅ FIX 9: Static scarcity with screen reader politeness -->
+            <div id="formNote" aria-live="polite" role="status">⚡ Only <strong>487 spots</strong> left at this price</div>
           </form>
 
           <div class="form-benefits">
             <div class="form-benefit">Priority booking when we open</div>
-            <div class="form-benefit">Up to $60 off your first dinner</div>
+            <div class="form-benefit">Claim your Founding Host credit</div>
             <div class="form-benefit">Early access — lock in today's pricing</div>
           </div>
         </div>
@@ -138,6 +130,7 @@
       <img
         src="assets/images/salmon.png"
         alt="A beautifully plated dinner prepared at home"
+        loading="lazy"
         style="width: 100%; height: 100%; object-fit: cover; object-position: center 65%; display: block;"
         onerror="this.parentElement.style.background='linear-gradient(135deg,#1e293b,#0f172a)'; this.style.display='none';"
       />
@@ -189,23 +182,18 @@
       </div>
     </section>
 
-    <section class="stats wrap">
-      <div class="stat-card">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Members joined</div>
+    <section class="editorial-stats wrap">
+      <div class="stat-item">
+        <div class="stat-number">500<span style="font-size: 0.7em; vertical-align: top; margin-left: 2px;">+</span></div>
+        <div class="stat-label">Hosts joined</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-item">
         <div class="stat-number">2–6</div>
         <div class="stat-label">Guest capacity</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">100%</div>
+      <div class="stat-item">
+        <div class="stat-number">100<span style="font-size: 0.7em; vertical-align: top; margin-left: 2px;">%</span></div>
         <div class="stat-label">Vetted chefs</div>
-      </div>
-      <!-- ✅ FIX 10: Replaced misleading "Q1 2026 Launch" stat with something accurate -->
-      <div class="stat-card">
-        <div class="stat-number">$60</div>
-        <div class="stat-label">Early member credit</div>
       </div>
     </section>
   </main>
@@ -231,4 +219,8 @@
         <p>© 2025 Maisonly. All rights reserved.</p>
       </div>
     </div>
-  </footer
+  </footer>
+
+  <script src="assets/js/scripts.js" defer></script>
+</body>
+</html>
