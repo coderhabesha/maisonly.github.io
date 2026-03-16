@@ -9,7 +9,6 @@ if (typeof window.supabase !== "undefined") {
 }
 
 // Track user metadata (UTM params and location)
-// Track user metadata (UTM params and location)
 async function trackUserMetadata() {
   const params = new URLSearchParams(window.location.search);
   const utmKeys = [
@@ -57,7 +56,33 @@ async function trackUserMetadata() {
   }
 }
 
-// Track visit to Supabase
+function applyVariant() {
+  const params = new URLSearchParams(window.location.search);
+  const variant = params.get("utm_content");
+
+  if (!variant) return; // no UTM = show default (student chef)
+
+  const swapMap = {
+    "emerging-chef": {
+      ".chef-label": "emerging chef",
+      ".chef-label-cap": "Emerging Chef", // for capitalized instances
+    },
+    "student-chef": {
+      ".chef-label": "student chef",
+      ".chef-label-cap": "Student Chef",
+    },
+  };
+
+  const swaps = swapMap[variant];
+  if (!swaps) return;
+
+  Object.entries(swaps).forEach(([selector, text]) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.textContent = text;
+    });
+  });
+}
+
 // Track visit to Supabase
 async function trackVisit() {
   if (!supabaseClient) {
@@ -67,6 +92,7 @@ async function trackVisit() {
 
   try {
     const locationData = await trackUserMetadata();
+
 
     // Construct metadata object
     const ip_info = {
@@ -101,6 +127,7 @@ if (typeof window !== "undefined") {
     // Add a small delay to ensure Supabase client is initialized
     setTimeout(() => {
       trackVisit();
+      applyVariant();
     }, 100);
   });
 }
