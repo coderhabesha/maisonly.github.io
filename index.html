@@ -1,226 +1,274 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <!-- Favicon links -->
+    <meta name="apple-mobile-web-app-title" content="Maisonly" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-<head>
-  <!-- Favicon links -->
-  <meta name="apple-mobile-web-app-title" content="Maisonly">
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Maisonly — Private Chef Dinners in the Bay Area</title>
+    <meta
+      name="description"
+      content="Restaurant-quality private dinners in your Bay Area home prepared by vetted culinary students. Starting at $50/person. Claim your $60 credit — only 1,000 spots."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Maisonly — Private Chef Dinners in the Bay Area</title>
-  <meta name="description"
-    content="Restaurant-quality private dinners in your Bay Area home prepared by vetted culinary students. Starting at $50/person. Claim your $60 credit — only 1,000 spots." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-959510559"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-959510559");
+    </script>
+  </head>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-959510559"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-959510559');
-  </script>
-</head>
-
-<body>
-  <nav id="nav">
-    <div class="wrap">
-      <a href="/" class="logo">
-        <img src="assets/images/maisonly_logo.png" alt="Maisonly" class="logo-icon">
-        <span>Maisonly</span>
-      </a>
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu"
-        aria-label="Toggle navigation menu">☰</button>
-      <div class="nav-links" id="navMenu">
-        <a href="/about">About</a>
-        <a href="/faq">FAQ</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ✅ FIX 1: Urgency banner — improved contrast for WCAG AA -->
-  <div style="background: #a32222; color: #fff; text-align: center; padding: 10px 16px; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.01em;">
-    🎉 Bay Area exclusive — Join our first 1,000 hosts for priority access and founding credits
-  </div>
-
-  <main>
-    <section class="hero-with-form wrap">
-      <div class="hero-content">
-
-        <!-- ✅ FIX 2: Replaced "Launching Q1 2026" (expired) with location + live status badge -->
-        <div class="badge">
-          <span>📍 Now accepting Bay Area hosts</span>
-        </div>
-        <div class="badge">
-          <span>Starting at $50 / person</span>
-        </div>
-
-        <!-- ✅ FIX 3: Headline leads with value prop, no multi-course reference -->
-        <h1>A Private Chef Dinner in Your Home, Without the Restaurant Price Tag</h1>
-
-        <p class="hero-subtitle">
-          Vetted culinary students come to <em>your</em> home in the Bay Area, they handle the
-          <strong>menu, cooking, and cleanup</strong> while you focus on your guests.
-          Intimate dinners for 2–6 guests, starting at $50/person.</p>
-
-        <div class="trust-badges">
-          <div class="trust-item">Vetted chefs</div>
-          <div class="trust-item">Mentor oversight</div>
-          <!-- ✅ FIX 5: Social proof in trust badges -->
-          <div class="trust-item">500+ already joined</div>
-        </div>
-
-        <!-- ✅ FIX 6: Testimonial focused on quality surprise + cleanup — no Michelin reference -->
-        <div style="margin-top: 32px; padding: 20px 24px; background: #f8fafc; border-radius: 14px; border-left: 3px solid #d94a4a;">
-          <p style="font-style: italic; color: #334155; font-size: 0.97rem; line-height: 1.6; margin: 0;">
-            "Honestly couldn't tell it was a student chef — the food was that good. And when they left, the kitchen was spotless."
-          </p>
-          <p style="margin: 10px 0 0; font-size: 0.85rem; color: #64748b; font-weight: 600;">— Early tester, San Francisco</p>
-        </div>
-      </div>
-
-      <div class="hero-form-card">
-        <div class="form-content">
-          <!-- ✅ FIX 7: CTA headline updated to "up to $60" -->
-          <h2>Get Early Access to Book</h2>
-          <p>Join 500+ Bay Area hosts getting priority access when we open bookings.</p>
-
-          <form id="waitlistForm">
-            <label for="email" class="form-label">Email address</label>
-            <input name="email" id="email" type="email" required aria-required="true" />
-
-            <!-- hidden fields for location and utm -->
-            <input type="hidden" name="utm_source" id="utm_source">
-            <input type="hidden" name="utm_medium" id="utm_medium">
-            <input type="hidden" name="utm_campaign" id="utm_campaign">
-            <input type="hidden" name="user_city" id="user_city">
-            <input type="hidden" name="user_region" id="user_region">
-            <input type="hidden" name="user_zip" id="user_zip">
-
-            <!-- ✅ FIX 8: Button updated to "up to $60" -->
-            <button type="submit" class="btn btn-lg" id="submitBtn">Claim Up to $60 Off →</button>
-
-            <p class="form-disclaimer">*$10 credit per guest for the first 1,000 sign-ups. Minimum 2 guests per booking. Bay Area only.</p>
-
-            <!-- ✅ FIX 9: Static scarcity with screen reader politeness -->
-            <div id="formNote" aria-live="polite" role="status">⚡ Only <strong>487 spots</strong> left at this price</div>
-          </form>
-
-          <div class="form-benefits">
-            <div class="form-benefit">Priority booking when we open</div>
-            <div class="form-benefit">Claim your Founding Host credit</div>
-            <div class="form-benefit">Early access — lock in today's pricing</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ✅ NEW: Meal photo full-bleed section — replace img src with your real dry-run photo -->
-    <!-- If using a real photo: upload to your assets/images/ folder and update the src below -->
-    <!-- If using stock: a warm, intimate plated dinner shot works best — search Unsplash for "plated dinner home" -->
-    <section style="position: relative; height: 420px; overflow: hidden; margin: 0;">
-      <img
-        src="assets/images/salmon.png"
-        alt="A beautifully plated dinner prepared at home"
-        loading="lazy"
-        style="width: 100%; height: 100%; object-fit: cover; object-position: center 65%; display: block;"
-        onerror="this.parentElement.style.background='linear-gradient(135deg,#1e293b,#0f172a)'; this.style.display='none';"
-      />
-      <!-- Dark overlay so any text remains readable -->
-      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,15,26,0.35) 0%, rgba(10,15,26,0.55) 100%);"></div>
-      <!-- Optional caption — remove if you prefer the image to speak for itself -->
-      <div style="position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); text-align: center; color: #fff;">
-        <p style="font-size: 1.1rem; font-weight: 600; letter-spacing: 0.02em; text-shadow: 0 2px 8px rgba(0,0,0,0.4); margin: 0;">
-          Restaurant-quality food. Your dining room. Zero cleanup.
-        </p>
-        <!-- 💡 SWAP THIS: Replace the Unsplash URL above with your actual dry-run photo for authenticity -->
-      </div>
-    </section>
-
-    <section class="process">
+  <body>
+    <nav id="nav">
       <div class="wrap">
-        <div class="section-header">
-          <h2 class="section-title">How it works</h2>
-          <p class="section-subtitle">A seamless experience from booking to cleanup</p>
-        </div>
-
-        <div class="process-steps">
-          <div class="process-step">
-            <div class="step-number">1</div>
-            <h3>Book a date</h3>
-            <p>Tell us your preferences, guest count, and any dietary requirements</p>
-          </div>
-
-          <div class="process-step">
-            <div class="step-number">2</div>
-            <h3>Chef matching</h3>
-            <p>We match you with a vetted student chef based on your preferences and menu style — every menu is reviewed
-              by a mentor.</p>
-          </div>
-
-          <div class="process-step">
-            <div class="step-number">3</div>
-            <h3>Preparation</h3>
-            <p>Your chef arrives ready to cook — ingredient sourcing and setup options vary by
-              guest preference.</p>
-          </div>
-
-          <div class="process-step">
-            <div class="step-number">4</div>
-            <h3>Enjoy dinner</h3>
-            <p>Savor a restaurant-quality meal with professional plating and service</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="editorial-stats wrap">
-      <div class="stat-item">
-        <div class="stat-number">500<span style="font-size: 0.7em; vertical-align: top; margin-left: 2px;">+</span></div>
-        <div class="stat-label">Hosts joined</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">2–6</div>
-        <div class="stat-label">Guest capacity</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">100<span style="font-size: 0.7em; vertical-align: top; margin-left: 2px;">%</span></div>
-        <div class="stat-label">Vetted chefs</div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div class="footer-content">
-        <div class="footer-brand-section">
-          <div class="footer-brand">Maisonly</div>
-          <p>Affordable Private Chef Experiences · Bay Area</p>
-        </div>
-        <div class="footer-links">
-          <a href="/">Home</a>
-          <a href="/chefs">For Chefs</a>
+        <a href="/" class="logo">
+          <img
+            src="assets/images/maisonly_logo.png"
+            alt="Maisonly"
+            class="logo-icon"
+          />
+          <span>Maisonly</span>
+        </a>
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="navMenu"
+          aria-label="Toggle navigation menu"
+        >
+          ☰
+        </button>
+        <div class="nav-links" id="navMenu">
           <a href="/about">About</a>
           <a href="/faq">FAQ</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/cdn-cgi/l/email-protection#c7afa2ababa887aaa6aeb4a8a9abbee9aea8">Contact</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 Maisonly. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </nav>
 
-  <script src="assets/js/scripts.js" defer></script>
-</body>
+    <div class="urgency-banner">
+      🎉 Bay Area exclusive — Join our first 1,000 hosts for priority access and
+      founding credits
+    </div>
+
+    <main>
+      <section class="hero-with-form wrap">
+        <div class="hero-content">
+          <div class="badge">
+            <span>📍 Now accepting Bay Area hosts</span>
+          </div>
+          <div class="badge">
+            <span>Starting at $50 / person</span>
+          </div>
+
+          <h1>
+            A Private Chef Dinner in Your Home, Without the Restaurant Price Tag
+          </h1>
+
+          <p class="hero-subtitle">
+            Vetted culinary students come to <em>your</em> home in the Bay Area,
+            they handle the <strong>menu, cooking, and cleanup</strong> while
+            you focus on your guests. Intimate dinners for 2–6 guests, starting
+            at $50/person.
+          </p>
+
+          <div class="trust-badges">
+            <div class="trust-item">Vetted chefs</div>
+            <div class="trust-item">Mentor oversight</div>
+            <div class="trust-item">500+ already joined</div>
+          </div>
+
+          <div class="testimonial-box">
+            <p class="testimonial-quote">
+              "Honestly couldn't tell it was a student chef — the food was that
+              good. And when they left, the kitchen was spotless."
+            </p>
+            <p class="testimonial-author">— Early tester, San Francisco</p>
+          </div>
+        </div>
+
+        <div class="hero-form-card">
+          <div class="form-content">
+            <h2>Get Early Access to Book</h2>
+            <p>
+              Join 500+ Bay Area hosts getting priority access when we open
+              bookings.
+            </p>
+
+            <form id="waitlistForm">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                name="email"
+                id="email"
+                type="email"
+                required
+                aria-required="true"
+              />
+
+              <!-- hidden fields for location and utm -->
+              <input type="hidden" name="utm_source" id="utm_source" />
+              <input type="hidden" name="utm_medium" id="utm_medium" />
+              <input type="hidden" name="utm_campaign" id="utm_campaign" />
+              <input type="hidden" name="user_city" id="user_city" />
+              <input type="hidden" name="user_region" id="user_region" />
+              <input type="hidden" name="user_zip" id="user_zip" />
+
+              <button type="submit" class="btn btn-lg" id="submitBtn">
+                Claim Up to $60 Off →
+              </button>
+
+              <p class="form-disclaimer">
+                *$10 credit per guest for the first 1,000 sign-ups. Minimum 2
+                guests per booking. Bay Area only.
+              </p>
+
+              <div id="formNote" aria-live="polite" role="status">
+                ⚡ Only <strong>487 spots</strong> left at this price
+              </div>
+            </form>
+
+            <div class="form-benefits">
+              <div class="form-benefit">Priority booking when we open</div>
+              <div class="form-benefit">Claim your Founding Host credit</div>
+              <div class="form-benefit">
+                Early access — lock in today's pricing
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- If using a real photo: upload to your assets/images/ folder and update the src below -->
+      <!-- If using stock: a warm, intimate plated dinner shot works best — search Unsplash for "plated dinner home" -->
+      <section class="hero-meal-section">
+        <img
+          src="assets/images/salmon.png"
+          alt="A beautifully plated dinner prepared at home"
+          loading="lazy"
+          class="hero-meal-img"
+          onerror="
+            this.parentElement.style.background =
+              'linear-gradient(135deg,#1e293b,#0f172a)';
+            this.style.display = 'none';
+          "
+        />
+        <!-- Dark overlay so any text remains readable -->
+        <div class="hero-meal-overlay"></div>
+        <!-- Optional caption — remove if you prefer the image to speak for itself -->
+        <div class="hero-meal-caption">
+          <p>Restaurant-quality food. Your dining room. Zero cleanup.</p>
+          <!-- 💡 SWAP THIS: Replace the Unsplash URL above with your actual dry-run photo for authenticity -->
+        </div>
+      </section>
+
+      <section class="process">
+        <div class="wrap">
+          <div class="section-header">
+            <h2 class="section-title">How it works</h2>
+            <p class="section-subtitle">
+              A seamless experience from booking to cleanup
+            </p>
+          </div>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>Book a date</h3>
+              <p>
+                Tell us your preferences, guest count, and any dietary
+                requirements
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>Chef matching</h3>
+              <p>
+                We match you with a vetted student chef based on your
+                preferences and menu style — every menu is reviewed by a mentor.
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>Preparation</h3>
+              <p>
+                Your chef arrives ready to cook — ingredient sourcing and setup
+                options vary by guest preference.
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h3>Enjoy dinner</h3>
+              <p>
+                Savor a restaurant-quality meal with professional plating and
+                service
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="editorial-stats wrap">
+        <div class="stat-item">
+          <div class="stat-number">500<span class="stat-plus">+</span></div>
+          <div class="stat-label">Hosts joined</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2–6</div>
+          <div class="stat-label">Guest capacity</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100<span class="stat-plus">%</span></div>
+          <div class="stat-label">Vetted chefs</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-content">
+          <div class="footer-brand-section">
+            <div class="footer-brand">Maisonly</div>
+            <p>Affordable Private Chef Experiences · Bay Area</p>
+          </div>
+          <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/chefs">For Chefs</a>
+            <a href="/about">About</a>
+            <a href="/faq">FAQ</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+            <a href="mailto:hello@maisonly.io">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Maisonly. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/scripts.js" defer></script>
+  </body>
 </html>
