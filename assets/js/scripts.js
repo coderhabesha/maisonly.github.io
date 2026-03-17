@@ -60,12 +60,14 @@ function applyVariant() {
   const params = new URLSearchParams(window.location.search);
   const variant = params.get("utm_content");
 
-  if (!variant) return; // no UTM = show default (student chef)
+  if (!variant) return;
 
   const swapMap = {
     "emerging-chef": {
       ".chef-label": "emerging chef",
-      ".chef-label-cap": "Emerging Chef", // for capitalized instances
+      ".chef-label-cap": "Emerging Chef",
+      ".testimonial-quote": '"The whole experience felt incredibly high-end. Our chef was an absolute pro and the plating was gorgeous."',
+      ".testimonial-author": "— Recent host, San Francisco"
     },
     "student-chef": {
       ".chef-label": "student chef",
