@@ -206,11 +206,76 @@ nav.scrolled {
 /* ========================================
    HERO SECTION
    ======================================== */
+.hero-video-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -2;
+  /* Optional: faint background color while video loads */
+  background: #1e293b; 
+}
+
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.75); /* Dark cinematic overlay */
+  z-index: -1;
+}
+
+/* Make text pop against the dark video overlay */
+.hero-video-wrapper h1 {
+  color: #ffffff;
+}
+.hero-video-wrapper .hero-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero-video-wrapper .trust-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+}
+.hero-video-wrapper .trust-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.hero-video-wrapper .testimonial-quote {
+  color: #ffffff;
+}
+.hero-video-wrapper .testimonial-author {
+  color: rgba(255, 255, 255, 0.7);
+}
+.hero-video-wrapper .badge {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+}
+.hero-video-wrapper .badge::before {
+  background: #10b981; /* bright green for 'live' dot */
+}
+
 .hero {
   padding: 80px 24px 120px;
   position: relative;
 }
-
 .hero-content {
   max-width: 680px;
   animation: fadeUp 0.8s ease-out;
