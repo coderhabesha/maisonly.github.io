@@ -201,7 +201,7 @@ if (waitlistForm && supabaseClient) {
 
     // Disable button and show loading state
     submitBtn.disabled = true;
-    submitBtn.textContent = "Joining...";
+    submitBtn.textContent = "Requesting...";
 
     // Get tracking data from localStorage
     const utm_source = localStorage.getItem("utm_source") || "";
@@ -247,12 +247,12 @@ if (waitlistForm && supabaseClient) {
       formNote.style.color = "#10b981";
       emailInput.value = "";
 
-      // Re-enable button after 2 seconds
+      // Re-enable button after 3 seconds
       setTimeout(() => {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Join waitlist";
+        submitBtn.textContent = "Request to Book + Claim $60 Off →";
         formNote.textContent =
-          "You'll receive priority booking when we launch in Q1 2026";
+          "We'll be in touch shortly to plan your menu and secure your date.";
         formNote.style.color = "";
       }, 3000);
     } catch (error) {
@@ -261,7 +261,7 @@ if (waitlistForm && supabaseClient) {
       // Check if it's a duplicate email error
       if (error.code === "23505" || error.message.includes("duplicate")) {
         formNote.textContent =
-          "You're already on the waitlist! Check your email for updates.";
+          "We already have your request! We'll be in touch very soon.";
       } else {
         formNote.textContent =
           "Submission failed. Please try again or contact us at hello@maisonly.io";
@@ -271,7 +271,7 @@ if (waitlistForm && supabaseClient) {
 
       // Re-enable button
       submitBtn.disabled = false;
-      submitBtn.textContent = "Join waitlist";
+      submitBtn.textContent = "Request to Book + Claim $60 Off →";
     }
   });
 }
