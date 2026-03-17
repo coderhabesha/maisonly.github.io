@@ -129,10 +129,12 @@ if (typeof window !== "undefined") {
     // Add a small delay to ensure Supabase client is initialized
     setTimeout(() => {
       trackVisit();
-      applyVariant();
     }, 100);
   });
 }
+
+// Apply variant immediately since the script is deferred and DOM is ready
+applyVariant();
 
 const navToggle = document.getElementById("navToggle");
 const navMenu = document.querySelector(".nav-links");
