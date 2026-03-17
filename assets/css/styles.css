@@ -105,9 +105,10 @@ nav {
   padding: var(--space-md) 0;
   display: flex;
   align-items: center;
-  background: var(--bg);
-  position: sticky;
+  background: transparent; /* Changed for video background */
+  position: absolute; /* absolute over the hero */
   top: 0;
+  width: 100%;
   z-index: 100;
   border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
@@ -124,8 +125,9 @@ nav .wrap {
 }
 
 nav.scrolled {
-  border-bottom-color: var(--border);
+  border-bottom-color: rgba(255,255,255,0.1);
   box-shadow: var(--shadow-sm);
+  background: var(--dark); /* Give it a dark background when scrolled */
 }
 
 .logo {
@@ -157,7 +159,7 @@ nav.scrolled {
 }
 
 .nav-links a {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
@@ -166,7 +168,7 @@ nav.scrolled {
 }
 
 .nav-links a:hover {
-  color: var(--dark);
+  color: #ffffff;
 }
 
 .nav-links a::after {
@@ -188,7 +190,7 @@ nav.scrolled {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: #0d4d3d;
+  color: #fff;
   font-family: var(--font-display);
   font-weight: 700;
   font-style: normal;
@@ -256,12 +258,6 @@ nav.scrolled {
 }
 .hero-video-wrapper .trust-item:hover {
   background: rgba(255, 255, 255, 0.2);
-}
-.hero-video-wrapper .testimonial-quote {
-  color: #ffffff;
-}
-.hero-video-wrapper .testimonial-author {
-  color: rgba(255, 255, 255, 0.7);
 }
 .hero-video-wrapper .badge {
   background: rgba(255, 255, 255, 0.15);
