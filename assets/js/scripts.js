@@ -250,7 +250,7 @@ if (waitlistForm && supabaseClient) {
       // Re-enable button after 3 seconds
       setTimeout(() => {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Request to Book + Claim $60 Off →";
+        submitBtn.textContent = "Claim $60 Off →";
         formNote.textContent =
           "We'll be in touch shortly to plan your menu and secure your date.";
         formNote.style.color = "";
@@ -271,7 +271,7 @@ if (waitlistForm && supabaseClient) {
 
       // Re-enable button
       submitBtn.disabled = false;
-      submitBtn.textContent = "Request to Book + Claim $60 Off →";
+      submitBtn.textContent = "Claim $60 Off →";
     }
   });
 }
