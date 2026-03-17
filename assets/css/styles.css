@@ -99,18 +99,25 @@ body {
 }
 
 /* ========================================
-   NAVIGATION
+   HEADER & NAVIGATION
    ======================================== */
-nav {
-  padding: var(--space-md) 0;
-  display: flex;
-  align-items: center;
-  background: transparent; /* Changed for video background */
-  position: absolute; /* absolute over the hero */
+.site-header {
+  position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 100;
-  border-bottom: 1px solid transparent;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+nav {
+  padding: var(--space-xs) 0;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
 }
 
@@ -125,9 +132,8 @@ nav .wrap {
 }
 
 nav.scrolled {
-  border-bottom-color: rgba(255,255,255,0.1);
+  background: rgba(0, 0, 0, 0.85);
   box-shadow: var(--shadow-sm);
-  background: var(--dark); /* Give it a dark background when scrolled */
 }
 
 .logo {
@@ -215,6 +221,8 @@ nav.scrolled {
   overflow: hidden;
   display: flex;
   align-items: center;
+  padding-top: 140px;
+  padding-bottom: 40px;
   isolation: isolate;
 }
 
@@ -1509,7 +1517,7 @@ footer {
   background: #a32222;
   color: #fff;
   text-align: center;
-  padding: 10px 16px;
+  padding: 6px 0;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.01em;
