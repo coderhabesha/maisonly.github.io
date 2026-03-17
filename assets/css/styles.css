@@ -213,6 +213,7 @@ nav.scrolled {
   overflow: hidden;
   display: flex;
   align-items: center;
+  isolation: isolate;
 }
 
 .hero-bg-video {
