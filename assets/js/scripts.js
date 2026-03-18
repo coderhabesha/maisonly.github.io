@@ -146,6 +146,15 @@ if (navToggle && navMenu) {
   });
 }
 
+document.addEventListener("click", (e) => {
+  if (navToggle && navMenu && navMenu.classList.contains("open")) {
+    if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+      navMenu.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", false);
+    }
+  }
+});
+
 // Add scrolled class to nav on scroll
 const nav = document.querySelector("nav");
 window.addEventListener("scroll", () => {

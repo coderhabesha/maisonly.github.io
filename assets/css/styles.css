@@ -656,7 +656,7 @@ h1 {
 
 .feature-card {
   padding: 36px 28px;
-  background: #fff;
+  background: var(--surface);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   transition: all 0.4s ease;
