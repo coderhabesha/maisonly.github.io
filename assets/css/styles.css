@@ -1291,7 +1291,7 @@ footer {
   }
   
   .nav-links.open a {
-    color: var(--dark);
+    color: #0f172a; /* Hardcoded dark for visibility on white background */
   }
 
   .hero {
