@@ -136,6 +136,12 @@ nav.scrolled {
   box-shadow: var(--shadow-sm);
 }
 
+.nav-solid {
+  background: #0f172a !important; /* Solid dark background for pages without a hero video */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 .logo {
   font-size: 1.4rem;
   font-weight: 800;
@@ -154,7 +160,7 @@ nav.scrolled {
   font-size: 1.6rem;
   background: none;
   border: none;
-  color: var(--dark);
+  color: #fff; /* Always white to match the dark header */
   cursor: pointer;
 }
 
@@ -1290,7 +1296,7 @@ footer {
     display: flex;
   }
   
-  .nav-links.open a {
+  .nav-links.open a:not(.btn) {
     color: #0f172a; /* Hardcoded dark for visibility on white background */
   }
 

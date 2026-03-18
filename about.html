@@ -40,7 +40,7 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="nav-solid">
       <div class="wrap">
         <a href="/" class="logo">
           <img
@@ -50,8 +50,16 @@
           />
           <span>Maisonly</span>
         </a>
-        <button class="nav-toggle">☰</button>
-        <div class="nav-links">
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="navMenu"
+          aria-label="Toggle navigation menu"
+        >
+          ☰
+        </button>
+        <div class="nav-links" id="navMenu">
           <a href="/">Home</a>
           <a href="/faq">FAQ</a>
           <a href="/" class="btn">Book now</a>
@@ -127,7 +135,7 @@
               <div class="feature-icon">🏆</div>
               <h3>Premium experience</h3>
               <p>
-                Restaurant-quality plating, optional wine pairing, and
+                Restaurant-quality plating and
                 professional service in your home
               </p>
             </div>
@@ -137,7 +145,6 @@
               <h3>Expert mentorship</h3>
               <p>
                 Every chef is guided by senior culinary mentors who review menus
-                and provide on-site support
               </p>
             </div>
 
@@ -154,8 +161,7 @@
               <div class="feature-icon">💰</div>
               <h3>Transparent pricing</h3>
               <p>
-                Clear per-person rates with no hidden fees—see the full
-                breakdown before you book
+                Clear per-person rates with no hidden fees ($50 per person, minimum 2 people)
               </p>
             </div>
           </div>
@@ -196,6 +202,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/scripts.js?v=2" defer></script>
   </body>
 </html>
