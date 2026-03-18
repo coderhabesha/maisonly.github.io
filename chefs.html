@@ -29,7 +29,7 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="nav-solid">
       <div class="wrap">
         <a href="/" class="logo">
           <img
@@ -39,7 +39,16 @@
           />
           <span>Maisonly</span>
         </a>
-        <div class="nav-links">
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="navMenu"
+          aria-label="Toggle navigation menu"
+        >
+          ☰
+        </button>
+        <div class="nav-links" id="navMenu">
           <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/faq">FAQ</a>
@@ -213,6 +222,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/scripts.js?v=2" defer></script>
   </body>
 </html>
