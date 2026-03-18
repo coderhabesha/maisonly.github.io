@@ -1064,7 +1064,7 @@ details[open] summary::after {
   min-height: 48px; /* Accessible touch target */
   background: rgba(255, 255, 255, 0.95);
   transition: all 0.3s ease;
-  color: var(--dark);
+  color: #0f172a; /* Hardcoded dark to contrast with white background */
 }
 
 #waitlistForm input:focus,
@@ -1289,6 +1289,10 @@ footer {
   .nav-links.open {
     display: flex;
   }
+  
+  .nav-links.open a {
+    color: var(--dark);
+  }
 
   .hero {
     padding: 40px 24px 60px;
@@ -1389,6 +1393,7 @@ footer {
   font-family: inherit;
   background: rgba(255, 255, 255, 0.95);
   transition: all 0.3s ease;
+  color: #0f172a; /* Hardcoded dark to contrast with white background */
 }
 
 .hero-form-card input[type="email"]:focus {
