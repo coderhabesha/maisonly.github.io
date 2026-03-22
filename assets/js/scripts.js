@@ -329,11 +329,11 @@ if (tabs.length > 0 && sections.length > 0) {
   // Don't show if already signed up or dismissed recently
   if (localStorage.getItem(STORAGE_KEY)) return;
 
-  // Show after 9 seconds
+  // Show after 6 seconds
   const timer = setTimeout(() => {
     popup.classList.add('active');
     emailInput.focus();
-  }, 9000);
+  }, 6000);
 
   function closePopup() {
     popup.classList.remove('active');
