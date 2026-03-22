@@ -1773,7 +1773,7 @@ footer {
   }
 
   .hero-video-wrapper {
-    background-image: url('assets/images/saltBae.JPEG');
+    background-image: url('../images/saltBae.JPEG');
     background-size: cover;
     background-position: center;
   }
