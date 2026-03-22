@@ -312,3 +312,83 @@ if (tabs.length > 0 && sections.length > 0) {
     });
   });
 }
+
+// ── Email Popup ──
+(function () {
+  const popup = document.getElementById('emailPopup');
+  const closeBtn = document.getElementById('popupClose');
+  const form = document.getElementById('popupForm');
+  const emailInput = document.getElementById('popupEmail');
+  const submitBtn = document.getElementById('popupSubmit');
+  const note = document.getElementById('popupNote');
+
+  if (!popup || !supabaseClient) return;
+
+  const STORAGE_KEY = 'maisonly_popup_seen';
+
+  // Don't show if already signed up or dismissed recently
+  if (localStorage.getItem(STORAGE_KEY)) return;
+
+  // Show after 9 seconds
+  const timer = setTimeout(() => {
+    popup.classList.add('active');
+    emailInput.focus();
+  }, 9000);
+
+  function closePopup() {
+    popup.classList.remove('active');
+    clearTimeout(timer);
+    localStorage.setItem(STORAGE_KEY, '1');
+  }
+
+  closeBtn.addEventListener('click', closePopup);
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) closePopup();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePopup();
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Requesting...';
+
+    const utm_source = localStorage.getItem('utm_source') || '';
+    const utm_medium = localStorage.getItem('utm_medium') || '';
+    const utm_campaign = localStorage.getItem('utm_campaign') || '';
+    const utm_content = localStorage.getItem('utm_content') || '';
+    const user_city = localStorage.getItem('user_city') || '';
+    const user_region = localStorage.getItem('user_region') || '';
+    const user_zip = localStorage.getItem('user_zip') || '';
+
+    try {
+      const { error } = await supabaseClient.from('waitlist').insert([{
+        email, name: '', role: 'guest',
+        utm_source, utm_medium, utm_campaign, utm_content,
+        user_city, user_region, user_zip,
+      }]);
+
+      if (error && error.code !== '23505') throw error;
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', { send_to: 'AW-959510559/31lkCJCpmYEcEJ_ww8kD' });
+      }
+
+      note.textContent = '✓ We\'ll be in touch within 24 hours!';
+      emailInput.value = '';
+      localStorage.setItem(STORAGE_KEY, '1');
+
+      setTimeout(closePopup, 2500);
+
+    } catch (err) {
+      note.style.color = '#ef4444';
+      note.textContent = 'Something went wrong — try again or email hello@maisonly.io';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Let\'s Plan Your Dinner →';
+    }
+  });
+})();

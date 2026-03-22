@@ -264,6 +264,30 @@
       </div>
     </footer>
 
+    <!-- Email Popup -->
+    <div id="emailPopup" class="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+      <div class="popup-card">
+        <button class="popup-close" id="popupClose" aria-label="Close">&times;</button>
+        <div class="popup-eyebrow">Bay Area Exclusive</div>
+        <h2 class="popup-title" id="popupTitle">Your dinner, handled.</h2>
+        <p class="popup-subtitle">A vetted chef comes to your home — menu, cooking, and cleanup included. Starting at $50/person.</p>
+        <p class="popup-offer">Claim $60 off your first dinner</p>
+        <form id="popupForm">
+          <input
+            type="email"
+            id="popupEmail"
+            placeholder="Your email address"
+            required
+            aria-label="Email address"
+            autocomplete="email"
+          />
+          <button type="submit" id="popupSubmit">Let's Plan Your Dinner →</button>
+          <p class="popup-disclaimer">Only 487 founding host spots remaining. Bay Area only.</p>
+        </form>
+        <div id="popupNote" aria-live="polite"></div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="assets/js/scripts.js?v=2" defer></script>
   </body>
