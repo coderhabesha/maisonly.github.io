@@ -1766,3 +1766,15 @@ footer {
   min-height: 1.2em;
   color: #10b981;
 }
+
+@media (max-width: 768px) {
+  .hero-bg-video {
+    display: none;
+  }
+  
+  .hero-video-wrapper {
+    background-image: url('assets/images/hero-poster.webp');
+    background-size: cover;
+    background-position: center bottom;
+  }
+}
