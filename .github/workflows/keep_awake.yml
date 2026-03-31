@@ -8,8 +8,15 @@ jobs:
   ping_supabase:
     runs-on: ubuntu-latest
     steps:
-      - name: Send API Request
+      - name: Ping Maisonly
         run: |
           curl -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/track_visitors?select=id&limit=1" \
           -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
+
+      - name: Ping Memory Map
+        run: |
+          curl -X GET "${{ secrets.MEMORY_MAP_SUPABASE_URL }}/rest/v1/memory?select=id&limit=1" \
+          -H "apikey: ${{ secrets.MEMORY_MAP_SUPABASE_ANON_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.MEMORY_MAP_SUPABASE_ANON_KEY }}"
+
