@@ -1770,7 +1770,7 @@ footer {
 @media (max-width: 768px) {
   .hero-bg-video { display: none; }
   .hero-video-wrapper {
-    background-image: url('../images/pasta_square.jpg');
+    background-image: url('../images/salmon_nblur_square.jpg');
     background-size: cover;
     background-position: center 72%;
     padding-top: 100px;
