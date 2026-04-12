@@ -1774,7 +1774,7 @@ footer {
   .hero-video-wrapper {
     background-image: none;
     background-color: #0f172a;
-    padding-top: 32px;
+    padding-top: 16px;
     min-height: unset;
   }
   .hero-video-overlay {
@@ -1815,8 +1815,16 @@ footer {
   transform: scale(0.97);
 }
 
-.mobile-food-strip {
-  display: none !important;
+@media (min-width: 769px) {
+  .mobile-food-strip {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-food-strip {
+    display: block !important;
+  }
 }
 
 @media (max-width: 768px) {
