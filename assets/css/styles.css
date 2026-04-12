@@ -1778,3 +1778,36 @@ footer {
     background-position: center;
   }
 }
+
+/* ========================================
+   HERO CTA BUTTON — inline in hero content
+   ======================================== */
+.hero-cta-btn {
+  display: inline-flex;
+  margin-bottom: 32px;
+  /* inherits all .btn and .btn-lg styles */
+}
+
+/* ========================================
+   BADGE LINKS — make pills tappable
+   ======================================== */
+.badge-link {
+  cursor: pointer;
+  text-decoration: none;
+  /* Remove default anchor color; badge styles handle appearance */
+  color: inherit;
+  /* Slightly stronger tap feedback on mobile */
+  -webkit-tap-highlight-color: rgba(255,255,255,0.15);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.badge-link:hover,
+.badge-link:focus-visible {
+  opacity: 0.85;
+  transform: scale(1.03);
+  outline: none;
+}
+
+.badge-link:active {
+  transform: scale(0.97);
+}

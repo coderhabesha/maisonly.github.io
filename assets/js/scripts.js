@@ -392,3 +392,32 @@ if (tabs.length > 0 && sections.length > 0) {
     }
   });
 })();
+
+(function () {
+  document.querySelectorAll('.badge-link[href="#waitlistForm"]').forEach((link) => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.getElementById('waitlistForm');
+      if (!target) return;
+
+      // Measure actual header height at click time (handles scroll states)
+      const header = document.querySelector('.site-header');
+      const headerHeight = header ? header.offsetHeight : 0;
+      const EXTRA_PADDING = 16; // a little breathing room above the form
+
+      const targetTop =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight -
+        EXTRA_PADDING;
+
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+
+      // Focus the email input after scroll for UX
+      setTimeout(() => {
+        const emailInput = document.getElementById('email');
+        if (emailInput) emailInput.focus({ preventScroll: true });
+      }, 600);
+    });
+  });
+})();

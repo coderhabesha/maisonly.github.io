@@ -50,7 +50,7 @@
   <body>
     <header class="site-header">
       <div class="urgency-banner">
-        🎉 Bay Area exclusive — Book now and claim your founding host credit. Valid for our first 1,000 hosts.
+        🎉 Bay Area exclusive — Book now and claim your founding dinner credit. Valid for our first 1,000 dinners.
       </div>
       <nav id="nav">
         <div class="wrap">
@@ -82,18 +82,18 @@
     <main>
       <section class="hero-video-wrapper">
         <video autoplay loop muted playsinline class="hero-bg-video"
-          poster="assets/images/saltBae.JPEG">
+          poster="assets/images/salmon.jpg">
           <source src="assets/videos/muted720.mp4" type="video/mp4" />
         </video>
         <div class="hero-video-overlay"></div>
         <div class="hero-with-form wrap">
         <div class="hero-content">
-          <div class="badge">
-            <span>Now accepting Bay Area hosts</span>
-          </div>
-          <div class="badge">
+          <a class="badge badge-link" href="#waitlistForm" aria-label="Now accepting Bay Area dinners — scroll to sign up">
+            <span>Now accepting Bay Area dinners</span>
+          </a>
+          <a class="badge badge-link" href="#waitlistForm" aria-label="Starting at $50 per person — scroll to sign up">
             <span>Starting at $50 / person</span>
-          </div>
+          </a>
 
           <h1>Bring the Chef Home.</h1>
 
@@ -106,10 +106,12 @@
             Private chef dinners typically run $150–200/person. Ours start at $50.
           </p>
 
+          <a href="#waitlistForm" class="btn btn-lg hero-cta-btn">Claim $60 Off Your First Dinner →</a>
+
           <div class="trust-badges">
             <div class="trust-item">Vetted chefs</div>
             <div class="trust-item">Mentor oversight</div>
-            <div class="trust-item">500+ already joined</div>
+            <div class="trust-item">500+ dinners planned</div>
           </div>
 
           <div class="testimonial-box">
@@ -163,7 +165,7 @@
 
             <div class="form-benefits">
               <div class="form-benefit">We'll personally match your chef</div>
-              <div class="form-benefit">Claim your Founding Host credit</div>
+              <div class="form-benefit">Claim your founding dinner credit</div>
               <div class="form-benefit">
                 Lock in today's pilot pricing
               </div>
@@ -222,14 +224,10 @@
         </div>
       </section>
 
-      <!-- If using a real photo: upload to your assets/images/ folder and update the src below -->
-      <!-- If using stock: a warm, intimate plated dinner shot works best — search Unsplash for "plated dinner home" -->
-      
-
       <section class="editorial-stats wrap">
         <div class="stat-item">
           <div class="stat-number">500<span class="stat-plus">+</span></div>
-          <div class="stat-label">Hosts joined</div>
+          <div class="stat-label">Dinners planned</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">2–6</div>
@@ -283,7 +281,7 @@
             autocomplete="email"
           />
           <button type="submit" id="popupSubmit">Let's Plan Your Dinner →</button>
-          <p class="popup-disclaimer">Only 487 founding host spots remaining. Bay Area only.</p>
+          <p class="popup-disclaimer">Only 487 founding dinner spots remaining. Bay Area only.</p>
         </form>
         <div id="popupNote" aria-live="polite"></div>
       </div>
