@@ -1772,13 +1772,12 @@ footer {
     display: none;
   }
   .hero-video-wrapper {
-    background-image: none;
-    background-color: #0f172a;
-    padding-top: 16px;
+    background-image: url('../images/salmon.jpg');
+    background-size: cover;
+    background-position: center 72%;
+    padding-top: 100px;
     min-height: unset;
-  }
-  .hero-video-overlay {
-    display: none;
+    padding-bottom: 40px;
   }
 }
 
