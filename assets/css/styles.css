@@ -221,14 +221,14 @@ nav.scrolled {
    HERO SECTION
    ======================================== */
 .hero-video-wrapper {
+  min-height: 100svh;
   position: relative;
   width: 100%;
-  min-height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
   padding-top: 140px;
-  padding-bottom: 40px;
+  padding-bottom: 60px;
   isolation: isolate;
 }
 
@@ -1773,9 +1773,9 @@ footer {
   }
 
   .hero-video-wrapper {
-    background-image: url('../images/saltBae.JPEG');
+    background-image: url('../images/salmon.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center 60%; 
   }
 }
 
