@@ -1768,17 +1768,17 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero-bg-video {
-    display: none;
-  }
+  .hero-bg-video { display: none; }
   .hero-video-wrapper {
     background-image: url('../images/salmon.jpg');
     background-size: cover;
     background-position: center 72%;
     padding-top: 100px;
-    min-height: unset;
     padding-bottom: 40px;
+    min-height: unset;
   }
+  .hero-form-card { padding: 36px 24px; }
+  .hero-form-card h2 { font-size: 1.5rem; }
 }
 
 /* ========================================
@@ -1812,16 +1812,4 @@ footer {
 
 .badge-link:active {
   transform: scale(0.97);
-}
-
-@media (min-width: 769px) {
-  .mobile-food-strip {
-    display: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .mobile-food-strip {
-    display: block !important;
-  }
 }
