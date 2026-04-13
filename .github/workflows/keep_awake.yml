@@ -18,5 +18,5 @@ jobs:
         run: |
           curl -X GET "${{ secrets.MEMORY_MAP_SUPABASE_URL }}/rest/v1/memory?select=id&limit=1" \
           -H "apikey: ${{ secrets.MEMORY_MAP_SUPABASE_ANON_API_KEY }}" \
-          -H "Authorization: Bearer ${{ secrets.MEMORY_MAP_SUPABASE_ANON_KEY }}"
+          -H "Authorization: Bearer ${{ secrets.MEMORY_MAP_SUPABASE_ANON_API_KEY }}"
 
