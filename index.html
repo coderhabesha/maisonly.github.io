@@ -87,89 +87,115 @@
         </video>
         <div class="hero-video-overlay"></div>
         <div class="hero-with-form wrap">
-        <div class="hero-content">
-          <a class="badge badge-link" href="#waitlistForm" aria-label="Now accepting Bay Area dinners — scroll to sign up">
-            <span>Now accepting Bay Area dinners</span>
-          </a>
-          <a class="badge badge-link" href="#waitlistForm" aria-label="Starting at $50 per person — scroll to sign up">
-            <span>Starting at $50 / person</span>
-          </a>
+          <div class="hero-content">
+            <!-- Single pill badge — no CTA duplicate -->
+            <div class="badge">
+              <span>Now accepting Bay Area dinners · Starting at $50 / person</span>
+            </div>
 
-          <h1>Bring the Chef Home.</h1>
+            <h1>Bring the Chef Home.</h1>
 
-          <p class="hero-subtitle">
-            Vetted <span class="chef-label">culinary students</span> come to your home.
-            They handle the <strong>menu, cooking, and cleanup</strong> while
-            you focus on your guests. Intimate dinners for 2–6 guests.
-            Private chef dinners typically run $150–200/person. Ours start at $50.
-          </p>
-
-          <a href="#waitlistForm" class="btn btn-lg hero-cta-btn">Claim $60 Off Your First Dinner →</a>
-
-          <div class="trust-badges">
-            <div class="trust-item">Vetted chefs</div>
-            <div class="trust-item">Mentor oversight</div>
-            <div class="trust-item">500+ dinners planned</div>
-          </div>
-
-          <div class="testimonial-box">
-            <p class="testimonial-quote">
-              "Honestly couldn't tell it was a student chef — the food was that
-              good. And when they left, the kitchen was spotless."
-            </p>
-            <p class="testimonial-author">— Charles S., San Francisco</p>
-          </div>
-        </div>
-
-        <div class="hero-form-card">
-          <div class="form-content">
-            <h2>Let's Plan Your Dinner</h2>
-            <p>
-              Leave your email and we'll personally reach out within 24 hours to plan your menu and date.
+            <p class="hero-subtitle">
+              Vetted <span class="chef-label">emerging chefs</span> come to your home.
+              They handle the <strong>menu, cooking, and cleanup</strong> while
+              you focus on your guests. Intimate dinners for 2–6 guests.
+              Private chef dinners typically run $150–200/person. Ours start at $50.
             </p>
 
-            <form id="waitlistForm">
-              <label for="email" class="form-label">Email address</label>
-              <input
-                name="email"
-                id="email"
-                type="email"
-                placeholder="foodie@example.com"
-                required
-                aria-required="true"
-              />
+            <a href="#waitlistForm" class="btn btn-lg hero-cta-btn">Claim $60 Off Your First Dinner →</a>
 
-              <!-- hidden fields for location and utm -->
-              <input type="hidden" name="utm_source" id="utm_source" />
-              <input type="hidden" name="utm_medium" id="utm_medium" />
-              <input type="hidden" name="utm_campaign" id="utm_campaign" />
-              <input type="hidden" name="user_city" id="user_city" />
-              <input type="hidden" name="user_region" id="user_region" />
-              <input type="hidden" name="user_zip" id="user_zip" />
+            <div class="trust-badges">
+              <div class="trust-item">Vetted chefs</div>
+              <div class="trust-item trust-item--mentor">
+                Mentor-reviewed menus
+              </div>
+              <div class="trust-item">500+ hosts interested</div>
+            </div>
 
-              <button type="submit" class="btn btn-lg" id="submitBtn">
-                Claim $60 Off →
-              </button>
+            <!-- Testimonials stacked -->
+            <div class="testimonial-stack">
+              <div class="testimonial-box">
+                <p class="testimonial-quote">
+                  "Honestly couldn't tell it was a student chef — the food was that
+                  good. And when they left, the kitchen was spotless."
+                </p>
+                <p class="testimonial-author">— Charles S., San Francisco</p>
+              </div>
+              <div class="testimonial-box">
+                <p class="testimonial-quote">
+                  "I hosted a dinner party for six and it felt like a restaurant
+                  experience in my own home. Everyone was blown away."
+                </p>
+                <p class="testimonial-author">— Danica T., Bay Area</p>
+              </div>
+            </div>
+          </div>
 
-              <p class="form-disclaimer">
-                *$10 credit per guest for the first 1,000 sign-ups. Minimum 2
-                guests per booking. Bay Area only.
+          <div class="hero-form-card">
+            <div class="form-content">
+              <h2>Let's Plan Your Dinner</h2>
+              <p>
+                Leave your email and we'll personally reach out within 24 hours to plan your menu and date.
               </p>
 
-              <div id="formNote" aria-live="polite" role="status">
-                ⚡ Only <strong>487 spots</strong> left at this price
-              </div>
-            </form>
+              <form id="waitlistForm">
+                <label for="email" class="form-label">Email address</label>
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  placeholder="foodie@example.com"
+                  required
+                  aria-required="true"
+                />
 
-            <div class="form-benefits">
-              <div class="form-benefit">We'll personally match your chef</div>
-              <div class="form-benefit">Claim your founding dinner credit</div>
-              <div class="form-benefit">
-                Lock in today's pilot pricing
+                <!-- hidden fields for location and utm -->
+                <input type="hidden" name="utm_source" id="utm_source" />
+                <input type="hidden" name="utm_medium" id="utm_medium" />
+                <input type="hidden" name="utm_campaign" id="utm_campaign" />
+                <input type="hidden" name="user_city" id="user_city" />
+                <input type="hidden" name="user_region" id="user_region" />
+                <input type="hidden" name="user_zip" id="user_zip" />
+
+                <button type="submit" class="btn btn-lg" id="submitBtn">
+                  Claim $60 Off →
+                </button>
+
+                <p class="form-disclaimer">
+                  *$10 credit per guest for the first 1,000 sign-ups. Minimum 2
+                  guests per booking. Bay Area only.
+                </p>
+
+                <div id="formNote" aria-live="polite" role="status">
+                  ⚡ Only <strong>487 spots</strong> left at this price
+                </div>
+              </form>
+
+              <!-- Success state (hidden until submit) -->
+              <div id="formSuccess" class="form-success" hidden>
+                <div class="form-success-icon">✓</div>
+                <h3>You're in!</h3>
+                <p>We'll personally reach out within 24 hours to plan your menu and lock in your date. Your $60 credit is reserved.</p>
+                <p class="form-success-footer">Questions? Email us at <a href="mailto:hello@maisonly.io">hello@maisonly.io</a></p>
+              </div>
+
+              <div class="form-benefits">
+                <div class="form-benefit">We'll personally match your chef</div>
+                <div class="form-benefit">Claim your founding dinner credit</div>
+                <div class="form-benefit">Lock in today's pilot pricing</div>
               </div>
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- Mentor callout strip -->
+      <section class="mentor-strip">
+        <div class="wrap mentor-strip-inner">
+          <div class="mentor-strip-icon">🎓</div>
+          <div>
+            <strong>How we ensure quality:</strong> Every chef in our network is enrolled in an accredited culinary program and has completed a test dinner. Your menu is reviewed and approved by a culinary mentor before your event — so you get restaurant-caliber results with complete peace of mind.
+          </div>
         </div>
       </section>
 
@@ -196,8 +222,8 @@
               <div class="step-number">2</div>
               <h3>Chef matching</h3>
               <p>
-                We match you with a vetted <span class="chef-label">student chef</span> based on your
-                preferences and menu style — every menu is reviewed by a mentor.
+                We match you with a vetted <span class="chef-label">emerging chef</span> based on your
+                preferences and menu style — every menu is reviewed and approved by a culinary mentor before your event.
               </p>
             </div>
 
@@ -225,7 +251,7 @@
       <section class="editorial-stats wrap">
         <div class="stat-item">
           <div class="stat-number">500<span class="stat-plus">+</span></div>
-          <div class="stat-label">Dinners planned</div>
+          <div class="stat-label">Hosts interested</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">2–6</div>
@@ -267,7 +293,7 @@
         <button class="popup-close" id="popupClose" aria-label="Close">&times;</button>
         <div class="popup-eyebrow">Bay Area Exclusive</div>
         <h2 class="popup-title" id="popupTitle">Your dinner, handled.</h2>
-        <p class="popup-subtitle">A vetted chef comes to your home — menu, cooking, and cleanup included. Starting at $50/person.</p>
+        <p class="popup-subtitle">A vetted emerging chef comes to your home — menu, cooking, and cleanup included. Starting at $50/person.</p>
         <p class="popup-offer">Claim $60 off your first dinner</p>
         <form id="popupForm">
           <input
@@ -286,6 +312,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="assets/js/scripts.js?v=2" defer></script>
+    <script src="assets/js/scripts.js?v=3" defer></script>
   </body>
 </html>

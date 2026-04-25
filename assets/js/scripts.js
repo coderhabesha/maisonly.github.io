@@ -63,15 +63,15 @@ function applyVariant() {
   if (!variant) return;
 
   const swapMap = {
+    // Both variants now use "emerging chef" as default — this variant just swaps
+    // the testimonial copy for the emerging-chef ad set
     "emerging-chef": {
-      ".chef-label": "emerging chef",
-      ".chef-label-cap": "Emerging Chef",
       ".testimonial-quote": '"The whole experience felt incredibly high-end. Our chef was an absolute pro and the plating was gorgeous."',
-      ".testimonial-author": "— Recent host, San Francisco"
+      ".testimonial-author": "— Recent host, San Francisco",
     },
+    // "student-chef" variant kept for backwards compat but maps to emerging chef
     "student-chef": {
-      ".chef-label": "student chef",
-      ".chef-label-cap": "Student Chef",
+      ".chef-label": "emerging chef",
     },
   };
 
@@ -79,9 +79,9 @@ function applyVariant() {
   if (!swaps) return;
 
   Object.entries(swaps).forEach(([selector, text]) => {
-    document.querySelectorAll(selector).forEach((el) => {
-      el.textContent = text;
-    });
+    // Only swap the FIRST matching element per selector to avoid nuking both testimonials
+    const el = document.querySelector(selector);
+    if (el) el.textContent = text;
   });
 }
 
