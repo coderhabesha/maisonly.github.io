@@ -1,7 +1,7 @@
 name: Keep Supabase Awake
 on:
   schedule:
-    - cron: "0 0 * * 1,4" # Runs every Monday and Thursday
+    - cron: "27 5 * * *"
   workflow_dispatch: # This adds a "Run workflow" button for testing
 
 jobs:
@@ -15,8 +15,9 @@ jobs:
           -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
 
       - name: Ping Memory Map
+        continue-on-error: true
         run: |
-          curl -X GET "${{ secrets.MEMORY_MAP_SUPABASE_URL }}/rest/v1/memory?select=id&limit=1" \
+          curl -X POST "${{ secrets.MEMORY_MAP_SUPABASE_URL }}/rest/v1/rpc/ping" \
           -H "apikey: ${{ secrets.MEMORY_MAP_SUPABASE_ANON_API_KEY }}" \
           -H "Authorization: Bearer ${{ secrets.MEMORY_MAP_SUPABASE_ANON_API_KEY }}"
 
